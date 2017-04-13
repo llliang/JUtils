@@ -1,0 +1,564 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		321BFD797725431AB4E36E16 /* libPods-JUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2736C0DF799D6D8E25DEFC30 /* libPods-JUtils.a */; };
+		37E74C3C1E9F7D5700FF705C /* JUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C3A1E9F7D5700FF705C /* JUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37E74C701E9F7E4B00FF705C /* JBaseTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C431E9F7E4A00FF705C /* JBaseTableViewCell.h */; };
+		37E74C711E9F7E4B00FF705C /* JBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C441E9F7E4A00FF705C /* JBaseTableViewCell.m */; };
+		37E74C721E9F7E4B00FF705C /* JLoadMoreView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C451E9F7E4A00FF705C /* JLoadMoreView.h */; };
+		37E74C731E9F7E4B00FF705C /* JLoadMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C461E9F7E4A00FF705C /* JLoadMoreView.m */; };
+		37E74C741E9F7E4B00FF705C /* JOnePixLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C471E9F7E4A00FF705C /* JOnePixLineView.h */; };
+		37E74C751E9F7E4B00FF705C /* JOnePixLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C481E9F7E4A00FF705C /* JOnePixLineView.m */; };
+		37E74C761E9F7E4B00FF705C /* JRefreshView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C491E9F7E4A00FF705C /* JRefreshView.h */; };
+		37E74C771E9F7E4B00FF705C /* JRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C4A1E9F7E4A00FF705C /* JRefreshView.m */; };
+		37E74C781E9F7E4B00FF705C /* JCacheManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C4C1E9F7E4A00FF705C /* JCacheManager.h */; };
+		37E74C791E9F7E4B00FF705C /* JCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C4D1E9F7E4A00FF705C /* JCacheManager.m */; };
+		37E74C7A1E9F7E4B00FF705C /* JHttpManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C4E1E9F7E4A00FF705C /* JHttpManager.h */; };
+		37E74C7B1E9F7E4B00FF705C /* JHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C4F1E9F7E4A00FF705C /* JHttpManager.m */; };
+		37E74C7C1E9F7E4B00FF705C /* JHud.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C501E9F7E4A00FF705C /* JHud.h */; };
+		37E74C7D1E9F7E4B00FF705C /* JHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C511E9F7E4A00FF705C /* JHud.m */; };
+		37E74C7E1E9F7E4B00FF705C /* JUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C521E9F7E4A00FF705C /* JUtil.h */; };
+		37E74C7F1E9F7E4B00FF705C /* JUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C531E9F7E4A00FF705C /* JUtil.m */; };
+		37E74C801E9F7E4B00FF705C /* JDataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C551E9F7E4A00FF705C /* JDataModel.h */; };
+		37E74C811E9F7E4B00FF705C /* JDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C561E9F7E4A00FF705C /* JDataModel.m */; };
+		37E74C821E9F7E4B00FF705C /* JEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C571E9F7E4A00FF705C /* JEntity.h */; };
+		37E74C831E9F7E4B00FF705C /* JEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C581E9F7E4A00FF705C /* JEntity.m */; };
+		37E74C841E9F7E4B00FF705C /* JBaseViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C5A1E9F7E4A00FF705C /* JBaseViewController.h */; };
+		37E74C851E9F7E4B00FF705C /* JBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C5B1E9F7E4A00FF705C /* JBaseViewController.m */; };
+		37E74C861E9F7E4B00FF705C /* JHttpRefreshLoadMoreScrollViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C5C1E9F7E4A00FF705C /* JHttpRefreshLoadMoreScrollViewController.h */; };
+		37E74C871E9F7E4B00FF705C /* JHttpRefreshLoadMoreScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C5D1E9F7E4A00FF705C /* JHttpRefreshLoadMoreScrollViewController.m */; };
+		37E74C881E9F7E4B00FF705C /* JHttpRefreshScrollViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C5E1E9F7E4A00FF705C /* JHttpRefreshScrollViewController.h */; };
+		37E74C891E9F7E4B00FF705C /* JHttpRefreshScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C5F1E9F7E4A00FF705C /* JHttpRefreshScrollViewController.m */; };
+		37E74C8A1E9F7E4B00FF705C /* JNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C601E9F7E4A00FF705C /* JNavigationController.h */; };
+		37E74C8B1E9F7E4B00FF705C /* JNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C611E9F7E4A00FF705C /* JNavigationController.m */; };
+		37E74C8C1E9F7E4B00FF705C /* Category.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C631E9F7E4A00FF705C /* Category.h */; };
+		37E74C8D1E9F7E4B00FF705C /* NSString+function.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C641E9F7E4A00FF705C /* NSString+function.h */; };
+		37E74C8E1E9F7E4B00FF705C /* NSString+function.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C651E9F7E4A00FF705C /* NSString+function.m */; };
+		37E74C8F1E9F7E4B00FF705C /* NSString+size.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C661E9F7E4A00FF705C /* NSString+size.h */; };
+		37E74C901E9F7E4B00FF705C /* NSString+size.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C671E9F7E4A00FF705C /* NSString+size.m */; };
+		37E74C911E9F7E4B00FF705C /* UIColor+hex.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C681E9F7E4A00FF705C /* UIColor+hex.h */; };
+		37E74C921E9F7E4B00FF705C /* UIColor+hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C691E9F7E4A00FF705C /* UIColor+hex.m */; };
+		37E74C931E9F7E4B00FF705C /* UIImage+tool.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C6A1E9F7E4A00FF705C /* UIImage+tool.h */; };
+		37E74C941E9F7E4B00FF705C /* UIImage+tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C6B1E9F7E4A00FF705C /* UIImage+tool.m */; };
+		37E74C951E9F7E4B00FF705C /* UIView+animation.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C6C1E9F7E4A00FF705C /* UIView+animation.h */; };
+		37E74C961E9F7E4B00FF705C /* UIView+animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C6D1E9F7E4A00FF705C /* UIView+animation.m */; };
+		37E74C971E9F7E4B00FF705C /* UIView+frame.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C6E1E9F7E4A00FF705C /* UIView+frame.h */; };
+		37E74C981E9F7E4B00FF705C /* UIView+frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C6F1E9F7E4A00FF705C /* UIView+frame.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		17B717150E136AF202CA1A45 /* Pods-JUtils.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JUtils.release.xcconfig"; path = "Pods/Target Support Files/Pods-JUtils/Pods-JUtils.release.xcconfig"; sourceTree = "<group>"; };
+		2736C0DF799D6D8E25DEFC30 /* libPods-JUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JUtils.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		37E74C371E9F7D5700FF705C /* JUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37E74C3A1E9F7D5700FF705C /* JUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JUtils.h; sourceTree = "<group>"; };
+		37E74C3B1E9F7D5700FF705C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37E74C431E9F7E4A00FF705C /* JBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBaseTableViewCell.h; sourceTree = "<group>"; };
+		37E74C441E9F7E4A00FF705C /* JBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBaseTableViewCell.m; sourceTree = "<group>"; };
+		37E74C451E9F7E4A00FF705C /* JLoadMoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLoadMoreView.h; sourceTree = "<group>"; };
+		37E74C461E9F7E4A00FF705C /* JLoadMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLoadMoreView.m; sourceTree = "<group>"; };
+		37E74C471E9F7E4A00FF705C /* JOnePixLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JOnePixLineView.h; sourceTree = "<group>"; };
+		37E74C481E9F7E4A00FF705C /* JOnePixLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JOnePixLineView.m; sourceTree = "<group>"; };
+		37E74C491E9F7E4A00FF705C /* JRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRefreshView.h; sourceTree = "<group>"; };
+		37E74C4A1E9F7E4A00FF705C /* JRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRefreshView.m; sourceTree = "<group>"; };
+		37E74C4C1E9F7E4A00FF705C /* JCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCacheManager.h; sourceTree = "<group>"; };
+		37E74C4D1E9F7E4A00FF705C /* JCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCacheManager.m; sourceTree = "<group>"; };
+		37E74C4E1E9F7E4A00FF705C /* JHttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHttpManager.h; sourceTree = "<group>"; };
+		37E74C4F1E9F7E4A00FF705C /* JHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHttpManager.m; sourceTree = "<group>"; };
+		37E74C501E9F7E4A00FF705C /* JHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHud.h; sourceTree = "<group>"; };
+		37E74C511E9F7E4A00FF705C /* JHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHud.m; sourceTree = "<group>"; };
+		37E74C521E9F7E4A00FF705C /* JUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JUtil.h; sourceTree = "<group>"; };
+		37E74C531E9F7E4A00FF705C /* JUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUtil.m; sourceTree = "<group>"; };
+		37E74C551E9F7E4A00FF705C /* JDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDataModel.h; sourceTree = "<group>"; };
+		37E74C561E9F7E4A00FF705C /* JDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDataModel.m; sourceTree = "<group>"; };
+		37E74C571E9F7E4A00FF705C /* JEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JEntity.h; sourceTree = "<group>"; };
+		37E74C581E9F7E4A00FF705C /* JEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JEntity.m; sourceTree = "<group>"; };
+		37E74C5A1E9F7E4A00FF705C /* JBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBaseViewController.h; sourceTree = "<group>"; };
+		37E74C5B1E9F7E4A00FF705C /* JBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBaseViewController.m; sourceTree = "<group>"; };
+		37E74C5C1E9F7E4A00FF705C /* JHttpRefreshLoadMoreScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHttpRefreshLoadMoreScrollViewController.h; sourceTree = "<group>"; };
+		37E74C5D1E9F7E4A00FF705C /* JHttpRefreshLoadMoreScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHttpRefreshLoadMoreScrollViewController.m; sourceTree = "<group>"; };
+		37E74C5E1E9F7E4A00FF705C /* JHttpRefreshScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHttpRefreshScrollViewController.h; sourceTree = "<group>"; };
+		37E74C5F1E9F7E4A00FF705C /* JHttpRefreshScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHttpRefreshScrollViewController.m; sourceTree = "<group>"; };
+		37E74C601E9F7E4A00FF705C /* JNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNavigationController.h; sourceTree = "<group>"; };
+		37E74C611E9F7E4A00FF705C /* JNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNavigationController.m; sourceTree = "<group>"; };
+		37E74C631E9F7E4A00FF705C /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
+		37E74C641E9F7E4A00FF705C /* NSString+function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+function.h"; sourceTree = "<group>"; };
+		37E74C651E9F7E4A00FF705C /* NSString+function.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+function.m"; sourceTree = "<group>"; };
+		37E74C661E9F7E4A00FF705C /* NSString+size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+size.h"; sourceTree = "<group>"; };
+		37E74C671E9F7E4A00FF705C /* NSString+size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+size.m"; sourceTree = "<group>"; };
+		37E74C681E9F7E4A00FF705C /* UIColor+hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+hex.h"; sourceTree = "<group>"; };
+		37E74C691E9F7E4A00FF705C /* UIColor+hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+hex.m"; sourceTree = "<group>"; };
+		37E74C6A1E9F7E4A00FF705C /* UIImage+tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+tool.h"; sourceTree = "<group>"; };
+		37E74C6B1E9F7E4A00FF705C /* UIImage+tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+tool.m"; sourceTree = "<group>"; };
+		37E74C6C1E9F7E4A00FF705C /* UIView+animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+animation.h"; sourceTree = "<group>"; };
+		37E74C6D1E9F7E4A00FF705C /* UIView+animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+animation.m"; sourceTree = "<group>"; };
+		37E74C6E1E9F7E4A00FF705C /* UIView+frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+frame.h"; sourceTree = "<group>"; };
+		37E74C6F1E9F7E4A00FF705C /* UIView+frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+frame.m"; sourceTree = "<group>"; };
+		383B8A4C88F39B2378E980FE /* Pods-JUtils.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JUtils.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JUtils/Pods-JUtils.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		37E74C331E9F7D5700FF705C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				321BFD797725431AB4E36E16 /* libPods-JUtils.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		37E74C2D1E9F7D5700FF705C = {
+			isa = PBXGroup;
+			children = (
+				37E74C391E9F7D5700FF705C /* JUtils */,
+				37E74C381E9F7D5700FF705C /* Products */,
+				6296A2AD8B1CF8760D26C5FE /* Pods */,
+				69677F875F90B80646D2254D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		37E74C381E9F7D5700FF705C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				37E74C371E9F7D5700FF705C /* JUtils.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		37E74C391E9F7D5700FF705C /* JUtils */ = {
+			isa = PBXGroup;
+			children = (
+				37E74C3A1E9F7D5700FF705C /* JUtils.h */,
+				37E74C4B1E9F7E4A00FF705C /* Tools */,
+				37E74C621E9F7E4A00FF705C /* Category */,
+				37E74C421E9F7E4A00FF705C /* Views */,
+				37E74C541E9F7E4A00FF705C /* Models */,
+				37E74C591E9F7E4A00FF705C /* Controllers */,
+				37E74C3B1E9F7D5700FF705C /* Info.plist */,
+			);
+			path = JUtils;
+			sourceTree = "<group>";
+		};
+		37E74C421E9F7E4A00FF705C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				37E74C431E9F7E4A00FF705C /* JBaseTableViewCell.h */,
+				37E74C441E9F7E4A00FF705C /* JBaseTableViewCell.m */,
+				37E74C451E9F7E4A00FF705C /* JLoadMoreView.h */,
+				37E74C461E9F7E4A00FF705C /* JLoadMoreView.m */,
+				37E74C471E9F7E4A00FF705C /* JOnePixLineView.h */,
+				37E74C481E9F7E4A00FF705C /* JOnePixLineView.m */,
+				37E74C491E9F7E4A00FF705C /* JRefreshView.h */,
+				37E74C4A1E9F7E4A00FF705C /* JRefreshView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		37E74C4B1E9F7E4A00FF705C /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				37E74C4C1E9F7E4A00FF705C /* JCacheManager.h */,
+				37E74C4D1E9F7E4A00FF705C /* JCacheManager.m */,
+				37E74C4E1E9F7E4A00FF705C /* JHttpManager.h */,
+				37E74C4F1E9F7E4A00FF705C /* JHttpManager.m */,
+				37E74C501E9F7E4A00FF705C /* JHud.h */,
+				37E74C511E9F7E4A00FF705C /* JHud.m */,
+				37E74C521E9F7E4A00FF705C /* JUtil.h */,
+				37E74C531E9F7E4A00FF705C /* JUtil.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		37E74C541E9F7E4A00FF705C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				37E74C551E9F7E4A00FF705C /* JDataModel.h */,
+				37E74C561E9F7E4A00FF705C /* JDataModel.m */,
+				37E74C571E9F7E4A00FF705C /* JEntity.h */,
+				37E74C581E9F7E4A00FF705C /* JEntity.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		37E74C591E9F7E4A00FF705C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				37E74C5A1E9F7E4A00FF705C /* JBaseViewController.h */,
+				37E74C5B1E9F7E4A00FF705C /* JBaseViewController.m */,
+				37E74C5C1E9F7E4A00FF705C /* JHttpRefreshLoadMoreScrollViewController.h */,
+				37E74C5D1E9F7E4A00FF705C /* JHttpRefreshLoadMoreScrollViewController.m */,
+				37E74C5E1E9F7E4A00FF705C /* JHttpRefreshScrollViewController.h */,
+				37E74C5F1E9F7E4A00FF705C /* JHttpRefreshScrollViewController.m */,
+				37E74C601E9F7E4A00FF705C /* JNavigationController.h */,
+				37E74C611E9F7E4A00FF705C /* JNavigationController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		37E74C621E9F7E4A00FF705C /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				37E74C631E9F7E4A00FF705C /* Category.h */,
+				37E74C641E9F7E4A00FF705C /* NSString+function.h */,
+				37E74C651E9F7E4A00FF705C /* NSString+function.m */,
+				37E74C661E9F7E4A00FF705C /* NSString+size.h */,
+				37E74C671E9F7E4A00FF705C /* NSString+size.m */,
+				37E74C681E9F7E4A00FF705C /* UIColor+hex.h */,
+				37E74C691E9F7E4A00FF705C /* UIColor+hex.m */,
+				37E74C6A1E9F7E4A00FF705C /* UIImage+tool.h */,
+				37E74C6B1E9F7E4A00FF705C /* UIImage+tool.m */,
+				37E74C6C1E9F7E4A00FF705C /* UIView+animation.h */,
+				37E74C6D1E9F7E4A00FF705C /* UIView+animation.m */,
+				37E74C6E1E9F7E4A00FF705C /* UIView+frame.h */,
+				37E74C6F1E9F7E4A00FF705C /* UIView+frame.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		6296A2AD8B1CF8760D26C5FE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				383B8A4C88F39B2378E980FE /* Pods-JUtils.debug.xcconfig */,
+				17B717150E136AF202CA1A45 /* Pods-JUtils.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		69677F875F90B80646D2254D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2736C0DF799D6D8E25DEFC30 /* libPods-JUtils.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		37E74C341E9F7D5700FF705C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37E74C721E9F7E4B00FF705C /* JLoadMoreView.h in Headers */,
+				37E74C701E9F7E4B00FF705C /* JBaseTableViewCell.h in Headers */,
+				37E74C931E9F7E4B00FF705C /* UIImage+tool.h in Headers */,
+				37E74C8A1E9F7E4B00FF705C /* JNavigationController.h in Headers */,
+				37E74C761E9F7E4B00FF705C /* JRefreshView.h in Headers */,
+				37E74C7E1E9F7E4B00FF705C /* JUtil.h in Headers */,
+				37E74C3C1E9F7D5700FF705C /* JUtils.h in Headers */,
+				37E74C801E9F7E4B00FF705C /* JDataModel.h in Headers */,
+				37E74C7A1E9F7E4B00FF705C /* JHttpManager.h in Headers */,
+				37E74C911E9F7E4B00FF705C /* UIColor+hex.h in Headers */,
+				37E74C881E9F7E4B00FF705C /* JHttpRefreshScrollViewController.h in Headers */,
+				37E74C8D1E9F7E4B00FF705C /* NSString+function.h in Headers */,
+				37E74C781E9F7E4B00FF705C /* JCacheManager.h in Headers */,
+				37E74C821E9F7E4B00FF705C /* JEntity.h in Headers */,
+				37E74C861E9F7E4B00FF705C /* JHttpRefreshLoadMoreScrollViewController.h in Headers */,
+				37E74C8F1E9F7E4B00FF705C /* NSString+size.h in Headers */,
+				37E74C951E9F7E4B00FF705C /* UIView+animation.h in Headers */,
+				37E74C741E9F7E4B00FF705C /* JOnePixLineView.h in Headers */,
+				37E74C7C1E9F7E4B00FF705C /* JHud.h in Headers */,
+				37E74C8C1E9F7E4B00FF705C /* Category.h in Headers */,
+				37E74C841E9F7E4B00FF705C /* JBaseViewController.h in Headers */,
+				37E74C971E9F7E4B00FF705C /* UIView+frame.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		37E74C361E9F7D5700FF705C /* JUtils */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37E74C3F1E9F7D5700FF705C /* Build configuration list for PBXNativeTarget "JUtils" */;
+			buildPhases = (
+				D006A6EE7B034723AF2081A1 /* [CP] Check Pods Manifest.lock */,
+				37E74C321E9F7D5700FF705C /* Sources */,
+				37E74C331E9F7D5700FF705C /* Frameworks */,
+				37E74C341E9F7D5700FF705C /* Headers */,
+				37E74C351E9F7D5700FF705C /* Resources */,
+				15762D099800A45DA26E93FB /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JUtils;
+			productName = JUtils;
+			productReference = 37E74C371E9F7D5700FF705C /* JUtils.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		37E74C2E1E9F7D5700FF705C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = GOGenius;
+				TargetAttributes = {
+					37E74C361E9F7D5700FF705C = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = 57ZK8687SF;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 37E74C311E9F7D5700FF705C /* Build configuration list for PBXProject "JUtils" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 37E74C2D1E9F7D5700FF705C;
+			productRefGroup = 37E74C381E9F7D5700FF705C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				37E74C361E9F7D5700FF705C /* JUtils */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		37E74C351E9F7D5700FF705C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		15762D099800A45DA26E93FB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JUtils/Pods-JUtils-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D006A6EE7B034723AF2081A1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		37E74C321E9F7D5700FF705C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37E74C891E9F7E4B00FF705C /* JHttpRefreshScrollViewController.m in Sources */,
+				37E74C8E1E9F7E4B00FF705C /* NSString+function.m in Sources */,
+				37E74C811E9F7E4B00FF705C /* JDataModel.m in Sources */,
+				37E74C791E9F7E4B00FF705C /* JCacheManager.m in Sources */,
+				37E74C961E9F7E4B00FF705C /* UIView+animation.m in Sources */,
+				37E74C731E9F7E4B00FF705C /* JLoadMoreView.m in Sources */,
+				37E74C831E9F7E4B00FF705C /* JEntity.m in Sources */,
+				37E74C7F1E9F7E4B00FF705C /* JUtil.m in Sources */,
+				37E74C981E9F7E4B00FF705C /* UIView+frame.m in Sources */,
+				37E74C771E9F7E4B00FF705C /* JRefreshView.m in Sources */,
+				37E74C901E9F7E4B00FF705C /* NSString+size.m in Sources */,
+				37E74C711E9F7E4B00FF705C /* JBaseTableViewCell.m in Sources */,
+				37E74C851E9F7E4B00FF705C /* JBaseViewController.m in Sources */,
+				37E74C941E9F7E4B00FF705C /* UIImage+tool.m in Sources */,
+				37E74C7D1E9F7E4B00FF705C /* JHud.m in Sources */,
+				37E74C8B1E9F7E4B00FF705C /* JNavigationController.m in Sources */,
+				37E74C7B1E9F7E4B00FF705C /* JHttpManager.m in Sources */,
+				37E74C751E9F7E4B00FF705C /* JOnePixLineView.m in Sources */,
+				37E74C871E9F7E4B00FF705C /* JHttpRefreshLoadMoreScrollViewController.m in Sources */,
+				37E74C921E9F7E4B00FF705C /* UIColor+hex.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		37E74C3D1E9F7D5700FF705C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		37E74C3E1E9F7D5700FF705C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		37E74C401E9F7D5700FF705C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 383B8A4C88F39B2378E980FE /* Pods-JUtils.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 57ZK8687SF;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = JUtils/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gogenius.JUtils;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		37E74C411E9F7D5700FF705C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17B717150E136AF202CA1A45 /* Pods-JUtils.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 57ZK8687SF;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = JUtils/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gogenius.JUtils;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		37E74C311E9F7D5700FF705C /* Build configuration list for PBXProject "JUtils" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37E74C3D1E9F7D5700FF705C /* Debug */,
+				37E74C3E1E9F7D5700FF705C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		37E74C3F1E9F7D5700FF705C /* Build configuration list for PBXNativeTarget "JUtils" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37E74C401E9F7D5700FF705C /* Debug */,
+				37E74C411E9F7D5700FF705C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 37E74C2E1E9F7D5700FF705C /* Project object */;
+}
