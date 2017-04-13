@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "JUtils"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "utils"
 
   # This description is used to generate tags and improve search results.
@@ -94,7 +94,7 @@ Pod::Spec.new do |s|
   s.source_files  = "JUtils/*.h"
   #s.exclude_files = "Classes/Exclude"
 
-  s.public_header_files = "JUtils/*.h"
+  #s.public_header_files = "JUtils/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
