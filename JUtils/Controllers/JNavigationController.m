@@ -16,6 +16,21 @@
 
 @implementation JNavigationController
 
+- (instancetype)init {
+    if (self = [super init]) {
+        
+        // navigation bar 背景色
+        [self.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"ffffff" alpha:0.7] size:CGSizeMake(1, 1)] forBarMetrics:UIBarMetricsDefault];
+        
+        NSShadow *shadow = [[NSShadow alloc] init];
+        shadow.shadowOffset = CGSizeZero;
+        shadow.shadowColor = [UIColor clearColor];
+        //设置navigationBar的标题的颜色
+        self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"000000" alpha:1],NSFontAttributeName:[UIFont systemFontOfSize:16],NSShadowAttributeName:shadow};
+    }
+    return self;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
@@ -28,14 +43,24 @@
     // 清除默认shadow
     [self removeDefaultShadow];
     
-    // navigation bar 背景色
-    [self.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"73d38e" alpha:1] size:CGSizeMake(1, 1)] forBarMetrics:UIBarMetricsDefault];
+}
+
+- (void)setTitleTextAttributes:(NSDictionary *)titleTextAttributes {
+    _titleTextAttributes = titleTextAttributes;
     
-    NSShadow *shadow = [[NSShadow alloc] init];
-    shadow.shadowOffset = CGSizeZero;
-    shadow.shadowColor = [UIColor clearColor];
-    //设置navigationBar的标题的颜色
-    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"ffffff" alpha:1],NSFontAttributeName:[UIFont systemFontOfSize:18],NSShadowAttributeName:shadow};
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:self.navigationBar.titleTextAttributes];
+    
+    [titleTextAttributes enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        [dic setObject:obj forKey:key];
+    }];
+    
+    self.navigationBar.titleTextAttributes = dic;
+}
+
+- (void)setNavigationBarBackgroundColor:(UIColor *)navigationBarBackgroundColor {
+    _navigationBarBackgroundColor = navigationBarBackgroundColor;
+    
+    [self.navigationBar setBackgroundImage:[UIImage imageWithColor:navigationBarBackgroundColor size:CGSizeMake(1, 1)] forBarMetrics:UIBarMetricsDefault];
 }
 
 - (void)removeDefaultShadow {
@@ -53,7 +78,7 @@
     if (self.viewControllers.count<=1) {
         return NO;
     }
-    return YES;
+    return self.enableGestureRecognizer;
 }
 
 @end
