@@ -73,7 +73,7 @@
             // 用config 取类名 eg: config = {"users":"User"} 对用data {"users":[{"name":"xxx","age":"11"},{"name":"xxx","age":"11"}]}
             NSString *className = [[self config] objectForKey:propertyName];
             NSAssert((className!=nil && className.length>0), @"未正确配置参数");
-            className = [NSString stringWithFormat:@"_TtC%ld%@%ld%@",_projectName.length,_projectName,className.length,className];
+            className = [NSString stringWithFormat:@"_TtC%lu%@%lu%@",_projectName.length,_projectName,className.length,className];
             Class cls = NSClassFromString(className);
             id otherEntity = [[cls alloc] init];
             [otherEntity entityWithData:item];
