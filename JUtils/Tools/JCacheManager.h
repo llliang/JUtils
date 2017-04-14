@@ -14,14 +14,14 @@
 
 /**
  @param cache <NSCoding> 带缓存数据 
- key 缓存时的key 
+ @param key 缓存时的key 
  */
 - (void)setCache:(id<NSCoding>)cache forKey:(NSString *)key;
 
 /**
  @param cache <NSCoding> 带缓存数据 
- key 缓存时的key 
- duration 缓存过期时间
+ @param key 缓存时的key 
+ @param duration 缓存过期时间
  */
 - (void)setCache:(id<NSCoding>)cache forKey:(NSString *)key duration:(NSInteger)duration;
 
@@ -36,10 +36,10 @@
  */
 - (BOOL)containsCache:(NSString *)key;
 
-// 根据key删除缓存
+/** 根据key删除缓存 */
 - (void)removeCache:(NSString *)key;
 
-// 清空所有缓存
+/** 清空所有缓存 */
 - (void)clearCache;
 
 

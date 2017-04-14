@@ -31,8 +31,11 @@
     // navigation bar 背景色
     [self.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"73d38e" alpha:1] size:CGSizeMake(1, 1)] forBarMetrics:UIBarMetricsDefault];
     
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowOffset = CGSizeZero;
+    shadow.shadowColor = [UIColor clearColor];
     //设置navigationBar的标题的颜色
-    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"ffffff" alpha:1],NSFontAttributeName:[UIFont systemFontOfSize:18],NSShadowAttributeName:[UIColor clearColor]};
+    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"ffffff" alpha:1],NSFontAttributeName:[UIFont systemFontOfSize:18],NSShadowAttributeName:shadow};
 }
 
 - (void)removeDefaultShadow {
