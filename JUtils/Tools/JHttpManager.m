@@ -19,14 +19,17 @@ static NSDate *serviceDate = nil;
 + (void)monitorNetworkStatus:(NetworkChangeBlock)block {
     AFNetworkReachabilityManager *afReachabilityManager = [AFNetworkReachabilityManager sharedManager];
     [afReachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        NSLog(@"%lu",(unsigned long)status);
-
+        
+        networkStatus = status;
         if (block) {
             block(status);
-            networkStatus = status;
         }
     }];
     [afReachabilityManager startMonitoring];
+}
+
++ (NetworkStatus)getNetworkStatus {
+    return networkStatus;
 }
 
 + (void)requestWithMethod:(HTTPMethod)method withParam:(NSDictionary *)param withUrl:(NSString *)url result:(void (^)(id))result failure:(void (^)(NSError *))failure {
@@ -121,10 +124,6 @@ static NSDate *serviceDate = nil;
     }];
 }
 
-+ (NSString *)host {
-    return @"";
-}
-
 + (AFHTTPSessionManager *)initializeAFManager {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
@@ -145,6 +144,10 @@ static NSDate *serviceDate = nil;
     return manager;
 }
 
++ (NSString *)host {
+    return @"";
+}
+
 + (AFSecurityPolicy *)buildCustomSecurityPolicy {
     return [AFSecurityPolicy defaultPolicy];
 }
@@ -153,8 +156,5 @@ static NSDate *serviceDate = nil;
     return @"";
 }
 
-+ (NetworkStatus)getNetworkStatus {
-    return networkStatus;
-}
 
 @end
