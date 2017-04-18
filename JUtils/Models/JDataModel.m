@@ -33,13 +33,29 @@
     return nil;
 }
 
+- (HTTPMethod)method {
+    return HTTPMethodGET;
+}
+
+- (NSDictionary *)param {
+    return [NSDictionary dictionary];
+}
+
+- (NSString *)requestUrl {
+    return @"";
+}
+
+- (Class)httpManager {
+    return [JHttpManager class];
+}
+
 - (void)loadStart:(void (^)())startBlock finished:(void (^)(JDataModel *))finishedBlock failure:(void (^)(NSError *))failureBlock{
     
     if (!self.loading) {
         
         startBlock();
         self.loading = YES;
-        [JHttpManager requestWithMethod:[self method] withParam:[self param] withUrl:[self requestUrl] result:^(id result) {
+        [[self httpManager] requestWithMethod:[self method] withParam:[self param] withUrl:[self requestUrl] result:^(id result) {
             
             self.loading = NO;
             finishedBlock([self phaseData:result]);
@@ -52,17 +68,6 @@
     }
 }
 
-- (HTTPMethod)method {
-    return HTTPMethodGET;
-}
-
-- (NSDictionary *)param {
-    return [NSDictionary dictionary];
-}
-
-- (NSString *)requestUrl {
-    return @"";
-}
 // 实体化数据
 - (id)entityData:(id)data {
     return [JEntity entityElement:data];
