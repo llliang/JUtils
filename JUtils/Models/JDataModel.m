@@ -34,31 +34,35 @@
 }
 
 - (void)loadStart:(void (^)())startBlock finished:(void (^)(JDataModel *))finishedBlock failure:(void (^)(NSError *))failureBlock{
-    NSInteger netStatus = [JHttpManager getNetworkStatus];
     
-    if (netStatus == -1 || netStatus == 1) {
-        [JHud showContent:@"网络异常"];
-        return;
-    }
     if (!self.loading) {
         
         startBlock();
         self.loading = YES;
-        
-        [JHttpManager requestResult:^(id result) {
+        [JHttpManager requestWithMethod:[self method] withParam:[self param] withUrl:[self requestUrl] result:^(id result) {
             
             self.loading = NO;
             finishedBlock([self phaseData:result]);
             
-        } failureHandle:^(NSError *error) {
+        } failure:^(NSError *error) {
             
             self.loading = NO;
             failureBlock(error);
-            
         }];
     }
 }
 
+- (HTTPMethod)method {
+    return HTTPMethodGET;
+}
+
+- (NSDictionary *)param {
+    return [NSDictionary dictionary];
+}
+
+- (NSString *)requestUrl {
+    return @"";
+}
 // 实体化数据
 - (id)entityData:(id)data {
     return [JEntity entityElement:data];
