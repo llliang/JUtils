@@ -143,7 +143,7 @@
 #pragma mark ------ encode decode
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:[self reserveEntity] forKey:@"code"];
+    [aCoder encodeObject:[self reserveEntity] forKey:@"coder"];
 }
 
 - (nullable instancetype)initWithCoder:(NSCoder *)aDecoder {
