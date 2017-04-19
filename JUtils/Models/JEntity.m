@@ -51,7 +51,6 @@
         
         Class cls = [self getPropertyClass:p];
         
-        
         if ([cls isSubclassOfClass:[NSArray class]]) {
             NSAssert([tempData isKindOfClass:[NSArray class]], @"属性和参数不统一");
             
@@ -126,7 +125,7 @@
     NSString *pName = [NSString stringWithCString:property_getAttributes(p) encoding:NSUTF8StringEncoding];
     // eg:  _TtC8BabyCare5BBaby
     NSArray *tempArray = [pName componentsSeparatedByString:@"\""];
-    if (!tempArray || tempArray.count <= 0) {
+    if (!tempArray || tempArray.count <= 1) {
         // 针对基础类型 简单返回Nil 并不代表真是Nil
         return Nil;
     }
