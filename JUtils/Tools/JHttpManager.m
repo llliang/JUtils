@@ -131,7 +131,8 @@ static NSDate *serviceDate = nil;
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     AFJSONResponseSerializer *responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
     manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
-    [manager.requestSerializer setValue:@"application/json"forHTTPHeaderField:@"Content-Type"];
+    
+//    [manager.requestSerializer setValue:@"application/json"forHTTPHeaderField:@"Content-Type"];
     manager.responseSerializer = responseSerializer;
     
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
