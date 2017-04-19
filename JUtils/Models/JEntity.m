@@ -9,21 +9,11 @@
 #import "JEntity.h"
 #import <objc/runtime.h>
 
-@interface JEntity () {
-    NSString *_projectName;
-}
+@interface JEntity ()
 
 @end
 
 @implementation JEntity
-
-- (instancetype)init {
-    if (self = [super init]) {
-        _projectName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleExecutable"];
-
-    }
-    return self;
-}
 
 - (NSDictionary *)config {
     return @{};
@@ -45,7 +35,7 @@
         NSString *propertyName = [NSString stringWithCString:property_getName(p) encoding:NSUTF8StringEncoding]; // 转成小写 以防驼峰式命名
         
         id tempData = [data objectForKey:propertyName];
-        if (!tempData) {
+        if (!tempData || [tempData count] <= 0) {
             continue;
         }
         
@@ -78,7 +68,9 @@
             // 用config 取类名 eg: config = {"users":"User"} 对用data {"users":[{"name":"xxx","age":"11"},{"name":"xxx","age":"11"}]}
             NSString *className = [[self config] objectForKey:propertyName];
             NSAssert((className!=nil && className.length>0), @"未正确配置参数");
-            className = [NSString stringWithFormat:@"_TtC%lu%@%lu%@",_projectName.length,_projectName,className.length,className];
+            NSString *projectName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleExecutable"];
+            
+            className = [NSString stringWithFormat:@"_TtC%lu%@%lu%@",projectName.length,projectName,className.length,className];
             Class cls = NSClassFromString(className);
             id otherEntity = [[cls alloc] init];
             [otherEntity entityWithData:item];
@@ -131,7 +123,9 @@
     }
     pName = [pName componentsSeparatedByString:@"\""][1];
 
-    NSRange range = [pName rangeOfString:_projectName];
+    NSString *projectName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleExecutable"];
+    
+    NSRange range = [pName rangeOfString:projectName];
     if (range.length > 0) {
         pName = [pName substringFromIndex:range.location + range.length];
     }
@@ -150,8 +144,5 @@
     [self entityWithData:[aDecoder decodeObjectForKey:@"coder"]];
     return self;
 }
-
-
-
 
 @end
