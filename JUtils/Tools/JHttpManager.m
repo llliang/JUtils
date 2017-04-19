@@ -39,7 +39,7 @@ static NSDate *serviceDate = nil;
         [JHud showContent:@"网络异常"];
         return;
     }
-    
+    NSLog(@"\nhttp url = %@",[NSString stringWithFormat:@"%@%@",[[self class] host],url] );
     AFHTTPSessionManager *manager = [[self class] initializeAFManager];
     
     if (method == HTTPMethodGET) {
@@ -98,6 +98,7 @@ static NSDate *serviceDate = nil;
     }
     
     AFHTTPSessionManager *manager = [[self class] initializeAFManager];
+    NSLog(@"\nhttp url = %@",[NSString stringWithFormat:@"%@%@",[[self class] host],url] );
 
     [manager POST:[NSString stringWithFormat:@"%@%@",[[self class] host],url] parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
@@ -133,7 +134,7 @@ static NSDate *serviceDate = nil;
     [manager.requestSerializer setValue:@"application/json"forHTTPHeaderField:@"Content-Type"];
     manager.responseSerializer = responseSerializer;
     
-//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
 
     // https cer
     manager.securityPolicy = [[self class] buildCustomSecurityPolicy];
