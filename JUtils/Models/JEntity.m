@@ -41,7 +41,10 @@
     
     for (int i = 0; i < count; i++) {
         objc_property_t p = properties[i];
-        NSString *propertyName = [[NSString stringWithCString:property_getName(p) encoding:NSUTF8StringEncoding] lowercaseString]; // 转成小写 以防驼峰式命名
+        
+        
+        
+        NSString *propertyName = [NSString stringWithCString:property_getName(p) encoding:NSUTF8StringEncoding]; // 转成小写 以防驼峰式命名
         Class cls = [self getPropertyClass:p];
         
         id tempData = [data objectForKey:propertyName];
@@ -95,7 +98,7 @@
         
         NSArray *value = [self valueForKey:propertyName];
         Class cls = [self getPropertyClass:p];
-
+        
 //        NSString *lowercaseName = [propertyName lowercaseString];
         
         if ([cls isSubclassOfClass:[NSArray class]]) {
@@ -104,12 +107,15 @@
                 NSMutableDictionary *tempDic = [item reserveEntity];
                 [tempArray addObject:tempDic];
             }
-            [dic setObject:tempArray forKey:propertyName];
+//            [dic setObject:tempArray forKey:propertyName];
+            [dic setValue:tempArray forKey:propertyName];
         } else if ([cls isSubclassOfClass:[JEntity class]]) {
             NSMutableDictionary *tempDic = [self reserveEntity];
-            [dic setObject:tempDic forKey:propertyName];
+            [dic setValue:tempDic forKey:propertyName];
+//            [dic setObject:tempDic forKey:propertyName];
         } else {
-            [dic setObject:value forKey:propertyName];
+//            [dic setObject:value forKey:propertyName];
+            [dic setValue:value forKey:propertyName];
         }
     }
     return dic;
@@ -121,6 +127,10 @@
     // 完整的类名 参考：property_getAttributes 格式 “_TtC” + 工程名字数+工程名+类名字数+类名 这样才可以反向得到一个类
     NSString *pName = [NSString stringWithCString:property_getAttributes(p) encoding:NSUTF8StringEncoding];
     // eg:  _TtC8BabyCare5BBaby
+    NSArray *tempArray = [pName componentsSeparatedByString:@"\""];
+    if (!tempArray || tempArray.count <= 0) {
+        return Nil;
+    }
     pName = [pName componentsSeparatedByString:@"\""][1];
 
     NSRange range = [pName rangeOfString:_projectName];
