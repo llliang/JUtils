@@ -42,12 +42,15 @@
     for (int i = 0; i < count; i++) {
         objc_property_t p = properties[i];
         
-        
-        
         NSString *propertyName = [NSString stringWithCString:property_getName(p) encoding:NSUTF8StringEncoding]; // 转成小写 以防驼峰式命名
-        Class cls = [self getPropertyClass:p];
         
         id tempData = [data objectForKey:propertyName];
+        if (!tempData) {
+            continue;
+        }
+        
+        Class cls = [self getPropertyClass:p];
+        
         
         if ([cls isSubclassOfClass:[NSArray class]]) {
             NSAssert([tempData isKindOfClass:[NSArray class]], @"属性和参数不统一");
@@ -96,25 +99,20 @@
         objc_property_t p = properties[i];
         NSString *propertyName = [NSString stringWithCString:property_getName(p) encoding:NSUTF8StringEncoding];
         
-        NSArray *value = [self valueForKey:propertyName];
+        id value = [self valueForKey:propertyName];
         Class cls = [self getPropertyClass:p];
-        
-//        NSString *lowercaseName = [propertyName lowercaseString];
-        
+                
         if ([cls isSubclassOfClass:[NSArray class]]) {
             NSMutableArray *tempArray = [NSMutableArray array];
             for (JEntity *item in value) {
                 NSMutableDictionary *tempDic = [item reserveEntity];
                 [tempArray addObject:tempDic];
             }
-//            [dic setObject:tempArray forKey:propertyName];
             [dic setValue:tempArray forKey:propertyName];
         } else if ([cls isSubclassOfClass:[JEntity class]]) {
-            NSMutableDictionary *tempDic = [self reserveEntity];
+            NSMutableDictionary *tempDic = [value reserveEntity];
             [dic setValue:tempDic forKey:propertyName];
-//            [dic setObject:tempDic forKey:propertyName];
         } else {
-//            [dic setObject:value forKey:propertyName];
             [dic setValue:value forKey:propertyName];
         }
     }
@@ -129,6 +127,7 @@
     // eg:  _TtC8BabyCare5BBaby
     NSArray *tempArray = [pName componentsSeparatedByString:@"\""];
     if (!tempArray || tempArray.count <= 0) {
+        // 针对基础类型 简单返回Nil 并不代表真是Nil
         return Nil;
     }
     pName = [pName componentsSeparatedByString:@"\""][1];
