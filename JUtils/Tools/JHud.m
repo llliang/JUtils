@@ -202,7 +202,6 @@ static const CGFloat kImageHeight = 50.0f;
     UIImageView             *_hudImageView;
     UILabel                 *_hudContentLabel;
     UIActivityIndicatorView *_hudIndicatorView;
-    UIColor                 *_hudFontColor;
     UIFont                  *_font;
 }
 
@@ -216,46 +215,32 @@ static const CGFloat kImageHeight = 50.0f;
     if (self) {
         self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.7];
 
-        _hudImageView = nil;
-        _hudContentLabel = nil;
-        _hudFontColor = [UIColor whiteColor];
+        UIColor *hudFontColor = [UIColor whiteColor];
         _font = [UIFont systemFontOfSize:12];
-        self.width = kDefaultHudWidth;
-    }
-    return  self;
-}
-
-- (UIImageView *)hudImageView {
-    if (_hudImageView == nil) {
+        
         _hudImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kImageHeight, kImageHeight)];
         _hudImageView.contentMode = UIViewContentModeScaleAspectFit;
         [self addSubview:_hudImageView];
-    }
-    return _hudImageView;
-}
-- (UIActivityIndicatorView *)hudIndicatorView {
-    if (_hudIndicatorView == nil) {
-        _hudIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-        _hudIndicatorView.color = _hudFontColor;
-        _hudIndicatorView.hidesWhenStopped = YES;
-        [self addSubview:_hudIndicatorView];
-    }
-    return _hudIndicatorView;
-}
-- (UILabel *)hudContentLabel {
-    if(_hudContentLabel == nil) {
+        
         _hudContentLabel = UILabel.new;
-        [_hudContentLabel setTextColor:_hudFontColor];
+        [_hudContentLabel setTextColor:hudFontColor];
         _hudContentLabel.lineBreakMode = NSLineBreakByCharWrapping;
         _hudContentLabel.font = _font;
         _hudContentLabel.textAlignment = NSTextAlignmentCenter;
         _hudContentLabel.numberOfLines = 0;
         _hudContentLabel.backgroundColor = [UIColor clearColor];
         [self addSubview:_hudContentLabel];
-    }
-    return _hudContentLabel;
-}
+        
+        
+        _hudIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        _hudIndicatorView.color = hudFontColor;
+        _hudIndicatorView.hidesWhenStopped = YES;
+        [self addSubview:_hudIndicatorView];
 
+        self.width = kDefaultHudWidth;
+    }
+    return  self;
+}
 
 - (void)layoutWith:(UIImage *)image content:(NSString *)content activity:(BOOL)activity {
     if (image != nil && activity) {
