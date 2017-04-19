@@ -96,7 +96,7 @@
         NSArray *value = [self valueForKey:propertyName];
         Class cls = [self getPropertyClass:p];
 
-        NSString *lowercaseName = [propertyName lowercaseString];
+//        NSString *lowercaseName = [propertyName lowercaseString];
         
         if ([cls isSubclassOfClass:[NSArray class]]) {
             NSMutableArray *tempArray = [NSMutableArray array];
@@ -104,12 +104,12 @@
                 NSMutableDictionary *tempDic = [item reserveEntity];
                 [tempArray addObject:tempDic];
             }
-            [dic setObject:tempArray forKey:lowercaseName];
+            [dic setObject:tempArray forKey:propertyName];
         } else if ([cls isSubclassOfClass:[JEntity class]]) {
             NSMutableDictionary *tempDic = [self reserveEntity];
-            [dic setObject:tempDic forKey:lowercaseName];
+            [dic setObject:tempDic forKey:propertyName];
         } else {
-            [dic setObject:value forKey:lowercaseName];
+            [dic setObject:value forKey:propertyName];
         }
     }
     return dic;
