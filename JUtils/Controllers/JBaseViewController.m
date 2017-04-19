@@ -7,6 +7,7 @@
 //
 
 #import "JBaseViewController.h"
+#import "UIBarButtonItem+custom.h"
 
 @interface JBaseViewController ()
 
@@ -18,6 +19,20 @@
     [super viewDidLoad];
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.navigationController.navigationBarHidden = NO;
+    self.navigationItem.backBarButtonItem = nil;
+    if (self.navigationController.viewControllers.count > 1) {
+        self.navigationItem.leftBarButtonItem = [UIBarButtonItem barButtonItemWithImage:self.backImage target:self action:@selector(backAction) imageEdgeInsets:UIEdgeInsetsMake(0, -20, 0, 0)];
+    }    
+}
+
+- (void)backAction {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

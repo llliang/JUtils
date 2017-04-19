@@ -47,11 +47,16 @@ static NSDate *serviceDate = nil;
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
+            if (![self specialHandle:(NSHTTPURLResponse *)task.response responseObject:responseObject]) {
+                return;
+            }
+            
             if (serviceDate == nil) {
                 serviceDate = [self getServiceDateFrom:(NSHTTPURLResponse *)task.response];
             }
             
             result(responseObject);
+            
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             
@@ -61,6 +66,10 @@ static NSDate *serviceDate = nil;
         [manager POST:[NSString stringWithFormat:@"%@%@",[[self class] host],url] parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+            if (![self specialHandle:(NSHTTPURLResponse *)task.response responseObject:responseObject]) {
+                return;
+            }
             
             if (serviceDate == nil) {
                 serviceDate = [self getServiceDateFrom:(NSHTTPURLResponse *)task.response];
@@ -73,6 +82,10 @@ static NSDate *serviceDate = nil;
             failure(error);
         }];
     }
+}
+
++ (BOOL)specialHandle:(NSHTTPURLResponse *)response responseObject:(id)object {
+    return YES;
 }
 
 + (NSDate *)serviceDate {
@@ -117,6 +130,10 @@ static NSDate *serviceDate = nil;
         progress(uploadProgress.completedUnitCount);
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        if (![self specialHandle:(NSHTTPURLResponse *)task.response responseObject:responseObject]) {
+            return;
+        }
         
         result(responseObject);
         

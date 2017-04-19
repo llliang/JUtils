@@ -12,7 +12,7 @@
 #import "NSString+size.h"
 
 static const CGFloat kDefaultTime = 2.0f;
-static const CGFloat kDefaultHudWidth = 80.0f;
+static const CGFloat kDefaultHudWidth = 96.0f;
 static const CGFloat kImageHeight = 50.0f;
 
 @interface JHud (){

@@ -35,7 +35,7 @@
         NSString *propertyName = [NSString stringWithCString:property_getName(p) encoding:NSUTF8StringEncoding]; // 转成小写 以防驼峰式命名
         
         id tempData = [data objectForKey:propertyName];
-        if (!tempData || [tempData count] <= 0) {
+        if (!tempData) {
             continue;
         }
         
