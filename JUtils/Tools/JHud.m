@@ -214,7 +214,8 @@ static const CGFloat kImageHeight = 50.0f;
     self = [super init];
     if (self) {
         self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.7];
-
+        self.cornerRadius = 5;
+        
         UIColor *hudFontColor = [UIColor whiteColor];
         _font = [UIFont systemFontOfSize:12];
         
@@ -230,7 +231,6 @@ static const CGFloat kImageHeight = 50.0f;
         _hudContentLabel.numberOfLines = 0;
         _hudContentLabel.backgroundColor = [UIColor clearColor];
         [self addSubview:_hudContentLabel];
-        
         
         _hudIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         _hudIndicatorView.color = hudFontColor;
@@ -269,7 +269,7 @@ static const CGFloat kImageHeight = 50.0f;
         _hudContentLabel.top = 15;
     }
     _hudContentLabel.height = contentSize.height;
-    _hudContentLabel.width = kDefaultHudWidth - 15;
+    _hudContentLabel.width = kDefaultHudWidth - 30;
     _hudContentLabel.left = 15;
     
     self.height = _hudContentLabel.bottom + 15;
