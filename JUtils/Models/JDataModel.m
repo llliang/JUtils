@@ -15,6 +15,7 @@
 @interface JDataModel () {
     
     NSInteger _fetchLimited; // 每次取的条数
+    NSInteger _pageNum;
 }
 
 @end
@@ -41,6 +42,13 @@
     return [NSDictionary dictionary];
 }
 
+- (void)setIsReload:(BOOL)isReload {
+    _isReload = isReload;
+    if (_isReload) {
+        _pageNum = 1;
+    }
+}
+
 - (NSString *)requestUrl {
     return @"";
 }
@@ -55,6 +63,11 @@
         
         startBlock();
         self.loading = YES;
+        
+        NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:[self param]];
+        [dic setObject:@(_pageNum) forKey:@"pageNum"];
+        [dic setObject:@(_fetchLimited) forKey:@"pageSize"];
+        
         [[self httpManager] requestWithMethod:[self method] withParam:[self param] withUrl:[self requestUrl] result:^(id result) {
             
             self.loading = NO;
@@ -107,6 +120,8 @@
             [tmpArray addObjectsFromArray:resultArray];
             self.data = tmpArray;
         }
+
+        _pageNum++;
         
     } else {
         self.data = [self entityData:tmpData];
