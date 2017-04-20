@@ -74,14 +74,14 @@
 }
 
 - (id)phaseData:(id)data {
-    self.status = [[data objectForKey:@""] integerValue];
-    self.message = [data objectForKey:@""];
-    id tmpData = [data objectForKey:@""]; // 目标数据
-//    // 若返回有问题
-//    if (self.status) {
-//        return self;
-//    }
-    if (!tmpData) {
+    self.status = [[data objectForKey:@"code"] integerValue];
+    self.message = [data objectForKey:@"message"];
+    id tmpData = [data objectForKey:@"result"]; // 目标数据
+    // 若返回有问题
+    if (self.status != 200 || self.status != 304) {
+        return self;
+    }
+    if (!tmpData || [tmpData isKindOfClass:[NSString class]]) {
         return self;
     }
     if ([tmpData count] < _fetchLimited) {
