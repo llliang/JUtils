@@ -14,7 +14,6 @@
 
 @interface JDataModel () {
     
-    NSInteger _fetchLimited; // 每次取的条数
     NSInteger _pageNum;
 }
 
@@ -91,7 +90,7 @@
     self.message = [data objectForKey:@"message"];
     id tmpData = [data objectForKey:@"result"]; // 目标数据
     // 若返回有问题
-    if (self.status != 200 || self.status != 304) {
+    if (self.status != 200 && self.status != 304) {
         return self;
     }
     if (!tmpData || [tmpData isKindOfClass:[NSString class]]) {
