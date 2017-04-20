@@ -95,7 +95,6 @@
 }
 
 - (void)setCornerRadius:(CGFloat)cornerRadius {
-    self.layer.masksToBounds = YES;
     self.layer.cornerRadius = cornerRadius;
     self.layer.shouldRasterize = YES;
     self.layer.rasterizationScale = [UIScreen mainScreen].scale;

@@ -28,6 +28,14 @@
     _containerView.delegate = self;
     [self.view addSubview:_containerView];
     
+    if ([_containerView isKindOfClass:[UITableView class]]) {
+        [(UITableView *)_containerView setDataSource:self];
+    }
+    
+    if ([_containerView isKindOfClass:[UICollectionView class]]) {
+        [(UICollectionView *)_containerView setDataSource:self];
+    }
+    
     _refreshView = [[JRefreshView alloc] initWithFrame:CGRectMake(0, -60, _containerView.width, 60)];
     _refreshView.delegate = self;
     [_containerView addSubview:_refreshView];
@@ -102,6 +110,22 @@
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     [_refreshView refreshScrollViewDidEndDragging:scrollView];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [[UITableViewCell alloc] init];
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 0;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return [[UICollectionViewCell alloc] init];
 }
 
 #pragma mark -------- refreshView  delegate
