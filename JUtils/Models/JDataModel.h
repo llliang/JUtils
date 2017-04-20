@@ -20,6 +20,8 @@
 @property (nonatomic) BOOL canLoadMore;
 
 @property (nonatomic) NSInteger fetchLimited; // 每次取的条数
+@property (nonatomic) NSInteger pageNum;
+
 
 - (void)loadStart:(void(^)())startBlock finished:(void(^)(JDataModel *model))finishedBlock failure:(void(^)(NSError *error))failureBlock;
 

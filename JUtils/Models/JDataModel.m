@@ -14,7 +14,6 @@
 
 @interface JDataModel () {
     
-    NSInteger _pageNum;
 }
 
 @end
