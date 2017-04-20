@@ -10,7 +10,7 @@
 #import "AFNetworking.h"
 #import "JHud.h"
 
-static NetworkStatus networkStatus = NetworkStatusUnknown;
+static NetworkStatus networkStatus = NetworkStatusReachableViaWAN;
 
 static NSDate *serviceDate = nil;
 
@@ -35,7 +35,7 @@ static NSDate *serviceDate = nil;
 + (void)requestWithMethod:(HTTPMethod)method withParam:(NSDictionary *)param withUrl:(NSString *)url result:(void (^)(id))result failure:(void (^)(NSError *))failure {
     NSInteger netStatus = [[self class] getNetworkStatus];
     
-    if (netStatus == -1 || netStatus == 1) {
+    if (netStatus == -1 || netStatus == 0) {
         [JHud showContent:@"网络异常"];
         return;
     }

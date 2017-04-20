@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "JUtils"
-  s.version      = "0.2.4"
+  s.version      = "0.2.5"
   s.summary      = "utils"
 
   # This description is used to generate tags and improve search results.
