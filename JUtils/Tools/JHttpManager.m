@@ -59,7 +59,9 @@ static NSDate *serviceDate = nil;
             
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            
+            if (![self specialHandle:(NSHTTPURLResponse *)task.response responseObject:nil]) {
+                return;
+            }
             failure(error);
         }];
     } else if (method == HTTPMethodPOST) {
@@ -78,7 +80,9 @@ static NSDate *serviceDate = nil;
             result(responseObject); 
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            
+            if (![self specialHandle:(NSHTTPURLResponse *)task.response responseObject:nil]) {
+                return;
+            }
             failure(error);
         }];
     }
