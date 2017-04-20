@@ -27,7 +27,10 @@
 // 沙盒 document root path
 + (NSString *)getDocumentRootPath;
 
-
+/**
+ 简单判断手机号码 1开头 11位 根据需要可重新写
+ */
++ (BOOL)checkPhone:(NSString *)phone;
 
 // 
 @end

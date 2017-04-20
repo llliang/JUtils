@@ -35,4 +35,11 @@
     return NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
 }
 
++ (BOOL)checkPhone:(NSString *)phone {
+    // 简单判断11位 1开头的数字
+    NSRegularExpression *regEx = [[NSRegularExpression alloc] initWithPattern:@"^1[0-9]{10}$" options:NSRegularExpressionCaseInsensitive error:NULL];
+    NSInteger count = [regEx numberOfMatchesInString:phone options:NSMatchingReportProgress range:NSMakeRange(0, phone.length)];
+    return count > 0;
+}
+
 @end
