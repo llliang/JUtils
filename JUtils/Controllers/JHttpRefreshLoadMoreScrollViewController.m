@@ -35,7 +35,7 @@
     
     if (success) {
         [_loadMoreView setState:JLoadMoreViewStateNormal];
-        _loadMoreView.hidden = (self.containerView.contentSize.height > self.containerView.height) && self.dataModel.canLoadMore;
+        _loadMoreView.hidden = !(self.containerView.contentSize.height > self.containerView.height) || !self.dataModel.canLoadMore;
         _loadMoreView.top = self.containerView.contentSize.height;
     } else {
         [_loadMoreView setState:JLoadMoreViewStateFailed];

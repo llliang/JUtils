@@ -35,6 +35,8 @@
 
 @interface JDataModel (list)
 
+- (id)itemAtIndex:(NSInteger)index;
+
 // 数量
 - (NSInteger)itemCount;
 

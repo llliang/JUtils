@@ -30,6 +30,7 @@
     
     if ([_containerView isKindOfClass:[UITableView class]]) {
         [(UITableView *)_containerView setDataSource:self];
+        [(UITableView *)_containerView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     }
     
     if ([_containerView isKindOfClass:[UICollectionView class]]) {
@@ -75,7 +76,7 @@
     [_refreshView refreshScrollViewDataSourceDidFinishedLoading:_containerView];
     
     if (success) {
-        _noDataView.hidden = !(_dataModel.data && [_dataModel.data count]);
+        _noDataView.hidden = _dataModel.data && _dataModel.itemCount;
     }else {
         _noDataView.hidden = YES;
     }

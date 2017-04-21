@@ -156,6 +156,13 @@
     }
 }
 
+- (id)itemAtIndex:(NSInteger)index {
+    if (self.data && [self.data count] && index <= [self.data count] - 1) {
+        return [self.data objectAtIndex:index];
+    }
+    return nil;
+}
+
 - (void)removeObject:(id)anObject {
     if ([self.data isKindOfClass:[NSArray class]]) {
         [self.data removeObject:anObject];
