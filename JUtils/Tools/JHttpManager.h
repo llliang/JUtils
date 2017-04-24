@@ -58,8 +58,9 @@ typedef void(^NetworkChangeBlock)(NetworkStatus status);
 + (void)uploadDatas:(NSArray *)datas withMethod:(HTTPMethod)method withTitles:(NSArray *)titles withParam:(NSDictionary *)param withUrl:(NSString *)url progress:(void(^)(CGFloat progress))progress result:(void(^)(id result))result failure:(void(^)(NSError *error))failure;
 
 // 校验服务器时间与本地时间最大差值
-+ (NSDate *)serviceDate;
++ (BOOL)serviceDateValid;
 
 
++ (NSString *)host;
 
 @end

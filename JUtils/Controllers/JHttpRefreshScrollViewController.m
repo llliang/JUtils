@@ -22,6 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _containerView = [[[self getContainerViewClass] alloc] initWithFrame:self.view.bounds];
+    _containerView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+
     if (![_containerView isKindOfClass:[UIScrollView class]]) {
         NSAssert(NO, @"容器类不是UIScrollView子类");
     }

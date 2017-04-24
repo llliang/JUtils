@@ -10,6 +10,6 @@
 
 @interface UIApplication (version)
 
-- (void)ver_openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options completionHandler:(void (^)(BOOL))completion;
+- (void)ver_openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options completionHandler:(void (^)(BOOL success))completion;
 
 @end

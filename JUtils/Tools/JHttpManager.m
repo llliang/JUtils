@@ -10,9 +10,14 @@
 #import "AFNetworking.h"
 #import "JHud.h"
 
+struct TimeValid {
+    BOOL valid;
+    BOOL change;
+};
+
 static NetworkStatus networkStatus = NetworkStatusReachableViaWAN;
 
-static NSDate *serviceDate = nil;
+static struct TimeValid timeValid;
 
 @implementation JHttpManager
 
@@ -51,8 +56,9 @@ static NSDate *serviceDate = nil;
                 return;
             }
             
-            if (serviceDate == nil) {
-                serviceDate = [self getServiceDateFrom:(NSHTTPURLResponse *)task.response];
+            if (!timeValid.change) {
+                timeValid.change = YES;
+                timeValid.valid = [self getServiceDateFrom:(NSHTTPURLResponse *)task.response];
             }
             
             result(responseObject);
@@ -73,8 +79,9 @@ static NSDate *serviceDate = nil;
                 return;
             }
             
-            if (serviceDate == nil) {
-                serviceDate = [self getServiceDateFrom:(NSHTTPURLResponse *)task.response];
+            if (!timeValid.change) {
+                timeValid.change = YES;
+                timeValid.valid = [self getServiceDateFrom:(NSHTTPURLResponse *)task.response];
             }
             
             result(responseObject); 
@@ -92,17 +99,23 @@ static NSDate *serviceDate = nil;
     return YES;
 }
 
-+ (NSDate *)serviceDate {
-    return serviceDate;
+
++ (BOOL)serviceDateValid {
+    return timeValid.valid;
 }
 
-+ (NSDate *)getServiceDateFrom:(NSHTTPURLResponse *)response {
++ (BOOL)getServiceDateFrom:(NSHTTPURLResponse *)response {
     NSString *dateString = response.allHeaderFields[@"Date"];
-    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dateFormatter setDateFormat:@"EEE, d MMM yyyy HH:mm:ss zzz"];
+    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+    NSDate *serviceDate = [dateFormatter dateFromString:dateString];
     
-    return [dateFormatter dateFromString:dateString];
+    NSTimeInterval time = [[NSDate date] timeIntervalSince1970] - [serviceDate timeIntervalSince1970];
+    if (abs((int)time) < 150) {
+        return YES;
+    }
+    return NO;
 }
 
 + (void)uploadDatas:(NSArray *)datas withMethod:(HTTPMethod)method withTitles:(NSArray *)titles withParam:(NSDictionary *)param withUrl:(NSString *)url progress:(void(^)(CGFloat progress))progress result:(void(^)(id result))result failure:(void(^)(NSError *error))failure {
