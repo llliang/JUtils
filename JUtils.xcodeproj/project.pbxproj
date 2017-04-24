@@ -10,6 +10,8 @@
 		321BFD797725431AB4E36E16 /* libPods-JUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2736C0DF799D6D8E25DEFC30 /* libPods-JUtils.a */; };
 		37844A391EA783FF00ED0763 /* UIBarButtonItem+custom.h in Headers */ = {isa = PBXBuildFile; fileRef = 37844A371EA783FF00ED0763 /* UIBarButtonItem+custom.h */; };
 		37844A3A1EA783FF00ED0763 /* UIBarButtonItem+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 37844A381EA783FF00ED0763 /* UIBarButtonItem+custom.m */; };
+		37E5737F1EAD888300ED2D42 /* UIAlertView+block.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E5737D1EAD888300ED2D42 /* UIAlertView+block.m */; };
+		37E573801EAD888300ED2D42 /* UIAlertView+block.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E5737E1EAD888300ED2D42 /* UIAlertView+block.h */; };
 		37E74C3C1E9F7D5700FF705C /* JUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C3A1E9F7D5700FF705C /* JUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37E74C701E9F7E4B00FF705C /* JBaseTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C431E9F7E4A00FF705C /* JBaseTableViewCell.h */; };
 		37E74C711E9F7E4B00FF705C /* JBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C441E9F7E4A00FF705C /* JBaseTableViewCell.m */; };
@@ -59,6 +61,8 @@
 		2736C0DF799D6D8E25DEFC30 /* libPods-JUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JUtils.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		37844A371EA783FF00ED0763 /* UIBarButtonItem+custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+custom.h"; sourceTree = "<group>"; };
 		37844A381EA783FF00ED0763 /* UIBarButtonItem+custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+custom.m"; sourceTree = "<group>"; };
+		37E5737D1EAD888300ED2D42 /* UIAlertView+block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+block.m"; sourceTree = "<group>"; };
+		37E5737E1EAD888300ED2D42 /* UIAlertView+block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+block.h"; sourceTree = "<group>"; };
 		37E74C371E9F7D5700FF705C /* JUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E74C3A1E9F7D5700FF705C /* JUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JUtils.h; sourceTree = "<group>"; };
 		37E74C3B1E9F7D5700FF705C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -224,6 +228,8 @@
 				37E74C6F1E9F7E4A00FF705C /* UIView+frame.m */,
 				37844A371EA783FF00ED0763 /* UIBarButtonItem+custom.h */,
 				37844A381EA783FF00ED0763 /* UIBarButtonItem+custom.m */,
+				37E5737E1EAD888300ED2D42 /* UIAlertView+block.h */,
+				37E5737D1EAD888300ED2D42 /* UIAlertView+block.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -260,6 +266,7 @@
 				37E74C7E1E9F7E4B00FF705C /* JUtil.h in Headers */,
 				37E74C3C1E9F7D5700FF705C /* JUtils.h in Headers */,
 				37E74C801E9F7E4B00FF705C /* JDataModel.h in Headers */,
+				37E573801EAD888300ED2D42 /* UIAlertView+block.h in Headers */,
 				37E74C7A1E9F7E4B00FF705C /* JHttpManager.h in Headers */,
 				37E74C911E9F7E4B00FF705C /* UIColor+hex.h in Headers */,
 				37E74C881E9F7E4B00FF705C /* JHttpRefreshScrollViewController.h in Headers */,
@@ -403,6 +410,7 @@
 				37E74C751E9F7E4B00FF705C /* JOnePixLineView.m in Sources */,
 				37E74C871E9F7E4B00FF705C /* JHttpRefreshLoadMoreScrollViewController.m in Sources */,
 				37E74C921E9F7E4B00FF705C /* UIColor+hex.m in Sources */,
+				37E5737F1EAD888300ED2D42 /* UIAlertView+block.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

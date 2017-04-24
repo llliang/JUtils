@@ -17,6 +17,6 @@
     #import "UIColor+hex.h"
     #import "UIImage+tool.h"
     #import "UIBarButtonItem+custom.h"
-
+    #import "UIAlertView+block.h"
 
 #endif /* Category_h */
