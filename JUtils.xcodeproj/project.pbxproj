@@ -12,6 +12,8 @@
 		37844A3A1EA783FF00ED0763 /* UIBarButtonItem+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 37844A381EA783FF00ED0763 /* UIBarButtonItem+custom.m */; };
 		37E5737F1EAD888300ED2D42 /* UIAlertView+block.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E5737D1EAD888300ED2D42 /* UIAlertView+block.m */; };
 		37E573801EAD888300ED2D42 /* UIAlertView+block.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E5737E1EAD888300ED2D42 /* UIAlertView+block.h */; };
+		37E573831EAD918800ED2D42 /* UIApplication+version.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E573811EAD918800ED2D42 /* UIApplication+version.h */; };
+		37E573841EAD918800ED2D42 /* UIApplication+version.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E573821EAD918800ED2D42 /* UIApplication+version.m */; };
 		37E74C3C1E9F7D5700FF705C /* JUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C3A1E9F7D5700FF705C /* JUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37E74C701E9F7E4B00FF705C /* JBaseTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C431E9F7E4A00FF705C /* JBaseTableViewCell.h */; };
 		37E74C711E9F7E4B00FF705C /* JBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C441E9F7E4A00FF705C /* JBaseTableViewCell.m */; };
@@ -63,6 +65,8 @@
 		37844A381EA783FF00ED0763 /* UIBarButtonItem+custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+custom.m"; sourceTree = "<group>"; };
 		37E5737D1EAD888300ED2D42 /* UIAlertView+block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+block.m"; sourceTree = "<group>"; };
 		37E5737E1EAD888300ED2D42 /* UIAlertView+block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+block.h"; sourceTree = "<group>"; };
+		37E573811EAD918800ED2D42 /* UIApplication+version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+version.h"; sourceTree = "<group>"; };
+		37E573821EAD918800ED2D42 /* UIApplication+version.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+version.m"; sourceTree = "<group>"; };
 		37E74C371E9F7D5700FF705C /* JUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E74C3A1E9F7D5700FF705C /* JUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JUtils.h; sourceTree = "<group>"; };
 		37E74C3B1E9F7D5700FF705C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -230,6 +234,8 @@
 				37844A381EA783FF00ED0763 /* UIBarButtonItem+custom.m */,
 				37E5737E1EAD888300ED2D42 /* UIAlertView+block.h */,
 				37E5737D1EAD888300ED2D42 /* UIAlertView+block.m */,
+				37E573811EAD918800ED2D42 /* UIApplication+version.h */,
+				37E573821EAD918800ED2D42 /* UIApplication+version.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -282,6 +288,7 @@
 				37E74C8C1E9F7E4B00FF705C /* Category.h in Headers */,
 				37E74C841E9F7E4B00FF705C /* JBaseViewController.h in Headers */,
 				37E74C971E9F7E4B00FF705C /* UIView+frame.h in Headers */,
+				37E573831EAD918800ED2D42 /* UIApplication+version.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +413,7 @@
 				37E74C941E9F7E4B00FF705C /* UIImage+tool.m in Sources */,
 				37E74C7D1E9F7E4B00FF705C /* JHud.m in Sources */,
 				37E74C8B1E9F7E4B00FF705C /* JNavigationController.m in Sources */,
+				37E573841EAD918800ED2D42 /* UIApplication+version.m in Sources */,
 				37E74C7B1E9F7E4B00FF705C /* JHttpManager.m in Sources */,
 				37E74C751E9F7E4B00FF705C /* JOnePixLineView.m in Sources */,
 				37E74C871E9F7E4B00FF705C /* JHttpRefreshLoadMoreScrollViewController.m in Sources */,
