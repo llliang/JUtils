@@ -19,6 +19,10 @@
 
 @implementation JHttpRefreshScrollViewController
 
+- (void)dealloc {
+    [_containerView removeObserver:self forKeyPath:@"tableHeaderView"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     _containerView = [[[self getContainerViewClass] alloc] initWithFrame:self.view.bounds];
@@ -44,7 +48,8 @@
     [_containerView addSubview:_refreshView];
     
     _noDataView = [self createNoDataView];
-    [self.view addSubview:_noDataView];
+    _noDataView.autoresizingMask =  UIViewAutoresizingFlexibleHeight;
+    [_containerView addSubview:_noDataView];
     
     _noDataView.hidden = YES;
     
@@ -56,6 +61,7 @@
     }
     
     [self performSelector:@selector(loadData) withObject:nil afterDelay:0.01];
+    [self addObserver:self forKeyPath:@"tableHeaderView" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (UIView *)createNoDataView {
@@ -139,6 +145,15 @@
 
 - (BOOL)pullRefreshTableHeaderDataSourceIsLoading:(JRefreshView *)view {
     return  self.dataModel.loading;
+}
+
+- (void)observeValueForKeyPath:(nullable NSString *)keyPath ofObject:(nullable id)object change:(nullable NSDictionary<NSKeyValueChangeKey, id> *)change context:(nullable void *)context {
+    if ([object isKindOfClass:[UITableView class]]) {
+        
+        UIView *headerView = [(UITableView *)_containerView tableHeaderView];
+        _noDataView.top = headerView.height;
+        _noDataView.height = _containerView.height - headerView.height;
+    }
 }
 
 @end

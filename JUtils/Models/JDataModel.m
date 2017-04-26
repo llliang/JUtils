@@ -149,6 +149,9 @@
 @implementation JDataModel (list)
 
 - (NSInteger)itemCount {
+    if (!self.data) {
+        return 0;
+    }
     if ([self.data isKindOfClass:[NSArray class]]) {
         return [self.data count];
     } else {

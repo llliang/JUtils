@@ -12,4 +12,7 @@
 
 + (UIBarButtonItem *)barButtonItemWithImage:(UIImage *)image target:(id)target action:(SEL)action imageEdgeInsets:(UIEdgeInsets)edgeInsets;
 
++ (UIBarButtonItem *)barButtonItemWithTitle:(NSString *)title titleColor:(UIColor *)titleColor target:(id)target action:(SEL)action titleEdgeInsets:(UIEdgeInsets)edgeInsets;
+
+
 @end

@@ -22,6 +22,20 @@
     return [[UIBarButtonItem alloc] initWithCustomView:button];
 }
 
++ (UIBarButtonItem *)barButtonItemWithTitle:(NSString *)title titleColor:(UIColor *)titleColor target:(id)target action:(SEL)action titleEdgeInsets:(UIEdgeInsets)edgeInsets {
+    UIButton *btn = [self barButtonWithTitle:title target:target action:action];
+    
+    [btn setTitle:title forState:UIControlStateNormal];
+    btn.titleEdgeInsets = edgeInsets;
+    if (titleColor) {
+        [btn setTitleColor:titleColor forState:UIControlStateNormal];
+    } else {
+        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    }
+    btn.exclusiveTouch = YES;
+    return [[UIBarButtonItem alloc] initWithCustomView:btn];
+}
+
 + (UIButton *)barButtonWithTitle:(NSString *)title target:(id)target action:(SEL)action{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
