@@ -8,6 +8,7 @@
 
 #import "JRefreshView.h"
 #import "UIView+frame.h"
+#import "UIColor+hex.h"
 
 static const CGFloat OFFSET_Min = 70; // 触发refresh 最小偏移量
 
@@ -23,6 +24,8 @@ static const CGFloat OFFSET_Min = 70; // 触发refresh 最小偏移量
     if (self = [super initWithFrame:frame]) {
         _tLabel = [[UILabel alloc] initWithFrame:self.bounds];
         _tLabel.textAlignment = NSTextAlignmentCenter;
+        _tLabel.font = [UIFont systemFontOfSize:12];
+        _tLabel.textColor = [UIColor colorWithHexString:@"353535" alpha:1];
         [self addSubview:_tLabel];
         self.state = RefreshStateNormal;
     }

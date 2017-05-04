@@ -42,17 +42,19 @@ static struct TimeValid timeValid;
     
     if (netStatus == -1 || netStatus == 0) {
         [JHud showContent:@"网络异常"];
+        failure(nil);
         return;
     }
     NSLog(@"\nhttp url = %@",[NSString stringWithFormat:@"%@%@",[[self class] host],url] );
     AFHTTPSessionManager *manager = [[self class] initializeAFManager];
-    
+    [manager.requestSerializer setTimeoutInterval:30];
     if (method == HTTPMethodGET) {
         [manager GET:[NSString stringWithFormat:@"%@%@",[[self class] host],url] parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
             if (![self specialHandle:(NSHTTPURLResponse *)task.response responseObject:responseObject]) {
+                failure(nil);
                 return;
             }
             
@@ -66,6 +68,7 @@ static struct TimeValid timeValid;
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             if (![self specialHandle:(NSHTTPURLResponse *)task.response responseObject:nil]) {
+                failure(nil);
                 return;
             }
             failure(error);
@@ -76,6 +79,7 @@ static struct TimeValid timeValid;
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
             if (![self specialHandle:(NSHTTPURLResponse *)task.response responseObject:responseObject]) {
+                failure(nil);
                 return;
             }
             
@@ -88,6 +92,7 @@ static struct TimeValid timeValid;
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             if (![self specialHandle:(NSHTTPURLResponse *)task.response responseObject:nil]) {
+                failure(nil);
                 return;
             }
             failure(error);
@@ -124,6 +129,7 @@ static struct TimeValid timeValid;
     
     if (netStatus == -1 || netStatus == 1) {
         [JHud showContent:@"网络异常"];
+        failure(nil);
         return;
     }
     
@@ -149,6 +155,7 @@ static struct TimeValid timeValid;
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         if (![self specialHandle:(NSHTTPURLResponse *)task.response responseObject:responseObject]) {
+            failure(nil);
             return;
         }
         

@@ -74,6 +74,9 @@
         } failure:^(NSError *error) {
             
             self.loading = NO;
+            if (error) {
+                [JHud showContent:error.localizedDescription];
+            }
             failureBlock(error);
         }];
     }

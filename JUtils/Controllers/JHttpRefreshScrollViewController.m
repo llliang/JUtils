@@ -49,7 +49,7 @@
     
     _noDataView = [self createNoDataView];
     _noDataView.autoresizingMask =  UIViewAutoresizingFlexibleHeight;
-    [_containerView addSubview:_noDataView];
+//    [_containerView addSubview:_noDataView];
     
     _noDataView.hidden = YES;
     
@@ -61,7 +61,7 @@
     }
     
     [self performSelector:@selector(loadData) withObject:nil afterDelay:0.01];
-    [self addObserver:self forKeyPath:@"tableHeaderView" options:NSKeyValueObservingOptionNew context:nil];
+    [_containerView addObserver:self forKeyPath:@"tableHeaderView" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (UIView *)createNoDataView {

@@ -16,6 +16,8 @@
 
 - (void)loadData;
 
+- (void)refreshData;
+
 - (void)loadSuccess:(BOOL)success;
 
 @end
