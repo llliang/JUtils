@@ -76,10 +76,13 @@
         } else {
             // 用config 取类名 eg: config = {"users":"User"} 对用data {"users":[{"name":"xxx","age":"11"},{"name":"xxx","age":"11"}]}
             NSString *className = [[self config] objectForKey:propertyName];
-            NSAssert((className!=nil && className.length>0), @"未正确配置参数");
+//            NSAssert((className!=nil && className.length>0), @"未正确配置参数");
+//            if (className == nil || className.length == 0) {
+//                NSLog(@"未正确配置参数");
+//                continue;
+//            }
             if (className == nil || className.length == 0) {
-                NSLog(@"未正确配置参数");
-                continue;
+                return tempArray;
             }
             //            NSString *projectName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleExecutable"];
             //            
