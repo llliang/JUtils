@@ -34,19 +34,28 @@
         
         NSString *propertyName = [NSString stringWithCString:property_getName(p) encoding:NSUTF8StringEncoding]; // 转成小写 以防驼峰式命名
         
-        id tempData = [data objectForKey:propertyName];
-        if (!tempData) {
+        id tempData = [data objectForKey:[self filterString:propertyName]];
+        if (!tempData || [tempData isKindOfClass:[NSNull class]]) {
             continue;
         }
         
         Class cls = [self getPropertyClass:p];
         
         if ([cls isSubclassOfClass:[NSArray class]]) {
-            NSAssert([tempData isKindOfClass:[NSArray class]], @"属性和参数不统一");
+//            NSAssert([tempData isKindOfClass:[NSArray class]], @"属性和参数不统一");
+            if (![tempData isKindOfClass:[NSArray class]]) {
+                NSLog(@"属性和参数不统一");
+                continue;   
+            }
             
             [self setValue:[self recursionArray:tempData forProperty:propertyName] forKey:propertyName];
         }else if ([cls isSubclassOfClass:[self class]]) {            
             NSAssert([tempData isKindOfClass:[NSDictionary class]], @"属性和参数不统一");
+            
+            if (![tempData isKindOfClass:[NSDictionary class]]) {
+                NSLog(@"属性和参数不统一");
+                continue;
+            }
             
             JEntity *other = [[cls alloc] init]; 
             [other entityWithData:tempData];
@@ -68,9 +77,13 @@
             // 用config 取类名 eg: config = {"users":"User"} 对用data {"users":[{"name":"xxx","age":"11"},{"name":"xxx","age":"11"}]}
             NSString *className = [[self config] objectForKey:propertyName];
             NSAssert((className!=nil && className.length>0), @"未正确配置参数");
-//            NSString *projectName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleExecutable"];
-//            
-//            className = [NSString stringWithFormat:@"_TtC%lu%@%lu%@",projectName.length,projectName,className.length,className];
+            if (className == nil || className.length == 0) {
+                NSLog(@"未正确配置参数");
+                continue;
+            }
+            //            NSString *projectName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleExecutable"];
+            //            
+            //            className = [NSString stringWithFormat:@"_TtC%lu%@%lu%@",projectName.length,projectName,className.length,className];
             Class cls = NSClassFromString(className);
             id otherEntity = [[cls alloc] init];
             [otherEntity entityWithData:item];
@@ -92,22 +105,29 @@
         
         id value = [self valueForKey:propertyName];
         Class cls = [self getPropertyClass:p];
-                
+        
         if ([cls isSubclassOfClass:[NSArray class]]) {
             NSMutableArray *tempArray = [NSMutableArray array];
             for (JEntity *item in value) {
                 NSMutableDictionary *tempDic = [item reserveEntity];
                 [tempArray addObject:tempDic];
             }
-            [dic setValue:tempArray forKey:propertyName];
+            [dic setValue:tempArray forKey:[self filterString:propertyName]];
         } else if ([cls isSubclassOfClass:[JEntity class]]) {
             NSMutableDictionary *tempDic = [value reserveEntity];
-            [dic setValue:tempDic forKey:propertyName];
+            [dic setValue:tempDic forKey:[self filterString:propertyName]];
         } else {
-            [dic setValue:value forKey:propertyName];
+            [dic setValue:value forKey:[self filterString:propertyName]];
         }
     }
     return dic;
+}
+
+- (NSString *)filterString:(NSString *)string {
+    if ([string hasPrefix:@"r_"]) {
+        return [string substringFromIndex:2];
+    }
+    return string;
 }
 
 - (Class)getPropertyClass:(objc_property_t)p {
@@ -122,7 +142,7 @@
         return Nil;
     }
     pName = [pName componentsSeparatedByString:@"\""][1];
-
+    
     NSString *projectName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleExecutable"];
     
     NSRange range = [pName rangeOfString:projectName];

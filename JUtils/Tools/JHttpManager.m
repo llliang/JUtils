@@ -46,7 +46,9 @@ static struct TimeValid timeValid;
         return;
     }
     NSLog(@"\nhttp url = %@",[NSString stringWithFormat:@"%@%@",[[self class] host],url] );
+    
     AFHTTPSessionManager *manager = [[self class] initializeAFManager];
+    
     [manager.requestSerializer setTimeoutInterval:30];
     if (method == HTTPMethodGET) {
         [manager GET:[NSString stringWithFormat:@"%@%@",[[self class] host],url] parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
@@ -179,8 +181,10 @@ static struct TimeValid timeValid;
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
 
     // https cer
-    manager.securityPolicy = [[self class] buildCustomSecurityPolicy];
-    
+    if ([[self class] buildCustomSecurityPolicy]) {
+        manager.securityPolicy = [[self class] buildCustomSecurityPolicy];    
+    }
+
     // 授权
     [manager.requestSerializer setValue:[[self class] httpHeaderAuthorization] forHTTPHeaderField:@"Authorization"];
     
