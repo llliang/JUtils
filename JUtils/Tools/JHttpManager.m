@@ -168,6 +168,34 @@ static struct TimeValid timeValid;
     }];
 }
 
++ (void)downloadWithParam:(NSDictionary *)param withUrl:(NSString *)url progress:(void(^)(CGFloat progress))progress destination:(NSURL * (^)())destination result:(void(^)(NSURL *filePath))result failure:(void(^)(NSError *error))failure {
+    
+    
+    NSInteger netStatus = [[self class] getNetworkStatus];
+    
+    if (netStatus == -1 || netStatus == 1) {
+        [JHud showContent:@"网络异常"];
+        failure(nil);
+        return;
+    }
+    
+    AFHTTPSessionManager *manager = [[self class] initializeAFManager];
+    NSLog(@"\nhttp url = %@",[NSString stringWithFormat:@"%@%@",[[self class] host],url] );
+
+    NSURL *requestUrl = [NSURL URLWithString:url];
+    
+    [manager downloadTaskWithRequest:[NSURLRequest requestWithURL:requestUrl] progress:^(NSProgress * _Nonnull downloadProgress) {
+        progress(downloadProgress.completedUnitCount);
+    } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+        
+        return destination(); 
+    } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+        result(filePath);
+    }];
+    
+    
+}
+
 + (AFHTTPSessionManager *)initializeAFManager {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
