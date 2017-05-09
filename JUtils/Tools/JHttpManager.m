@@ -9,6 +9,7 @@
 #import "JHttpManager.h"
 #import "AFNetworking.h"
 #import "JHud.h"
+#import "Macros.h"
 
 struct TimeValid {
     BOOL valid;
@@ -45,7 +46,7 @@ static struct TimeValid timeValid;
         failure(nil);
         return;
     }
-    NSLog(@"\nhttp url = %@",[NSString stringWithFormat:@"%@%@",[[self class] host],url] );
+    JLog(@"\nhttp url = %@",[NSString stringWithFormat:@"%@%@",[[self class] host],url] );
     
     AFHTTPSessionManager *manager = [[self class] initializeAFManager];
     
@@ -136,7 +137,7 @@ static struct TimeValid timeValid;
     }
     
     AFHTTPSessionManager *manager = [[self class] initializeAFManager];
-    NSLog(@"\nhttp url = %@",[NSString stringWithFormat:@"%@%@",[[self class] host],url] );
+    JLog(@"\nhttp url = %@",[NSString stringWithFormat:@"%@%@",[[self class] host],url] );
 
     [manager POST:[NSString stringWithFormat:@"%@%@",[[self class] host],url] parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
@@ -180,20 +181,21 @@ static struct TimeValid timeValid;
     }
     
     AFHTTPSessionManager *manager = [[self class] initializeAFManager];
-    NSLog(@"\nhttp url = %@",[NSString stringWithFormat:@"%@%@",[[self class] host],url] );
 
     NSURL *requestUrl = [NSURL URLWithString:url];
     
-    [manager downloadTaskWithRequest:[NSURLRequest requestWithURL:requestUrl] progress:^(NSProgress * _Nonnull downloadProgress) {
+    NSURLSessionDownloadTask *task = [manager downloadTaskWithRequest:[NSURLRequest requestWithURL:requestUrl] progress:^(NSProgress * _Nonnull downloadProgress) {
         progress(downloadProgress.completedUnitCount);
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
         
         return destination(); 
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+        if (error) {
+            JLog(@"error = %@",error);
+        }
         result(filePath);
     }];
-    
-    
+    [task resume];
 }
 
 + (AFHTTPSessionManager *)initializeAFManager {

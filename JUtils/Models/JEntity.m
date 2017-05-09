@@ -8,6 +8,7 @@
 
 #import "JEntity.h"
 #import <objc/runtime.h>
+#import "Macros.h"
 
 @interface JEntity ()
 
@@ -44,7 +45,7 @@
         if ([cls isSubclassOfClass:[NSArray class]]) {
 //            NSAssert([tempData isKindOfClass:[NSArray class]], @"属性和参数不统一");
             if (![tempData isKindOfClass:[NSArray class]]) {
-                NSLog(@"属性和参数不统一");
+                JLog(@"属性和参数不统一");
                 continue;   
             }
             
@@ -53,7 +54,7 @@
             NSAssert([tempData isKindOfClass:[NSDictionary class]], @"属性和参数不统一");
             
             if (![tempData isKindOfClass:[NSDictionary class]]) {
-                NSLog(@"属性和参数不统一");
+                JLog(@"属性和参数不统一");
                 continue;
             }
             
@@ -78,7 +79,7 @@
             NSString *className = [[self config] objectForKey:propertyName];
 //            NSAssert((className!=nil && className.length>0), @"未正确配置参数");
 //            if (className == nil || className.length == 0) {
-//                NSLog(@"未正确配置参数");
+//                JLog(@"未正确配置参数");
 //                continue;
 //            }
             if (className == nil || className.length == 0) {
