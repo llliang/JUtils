@@ -16,20 +16,6 @@
 
 @implementation JNavigationController
 
-- (instancetype)init {
-    if (self = [super init]) {
-        
-        // navigation bar 背景色
-        [self.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"ffffff" alpha:0.7] size:CGSizeMake(1, 1)] forBarMetrics:UIBarMetricsDefault];
-        
-        NSShadow *shadow = [[NSShadow alloc] init];
-        shadow.shadowOffset = CGSizeZero;
-        shadow.shadowColor = [UIColor clearColor];
-        //设置navigationBar的标题的颜色
-        self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"000000" alpha:1],NSFontAttributeName:[UIFont systemFontOfSize:16],NSShadowAttributeName:shadow};
-    }
-    return self;
-}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -42,6 +28,15 @@
     
     // 清除默认shadow
     [self removeDefaultShadow];
+    
+    // navigation bar 背景色
+    [self.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"ffffff" alpha:0.7] size:CGSizeMake(1, 1)] forBarMetrics:UIBarMetricsDefault];
+    
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowOffset = CGSizeZero;
+    shadow.shadowColor = [UIColor clearColor];
+    //设置navigationBar的标题的颜色
+    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"000000" alpha:1],NSFontAttributeName:[UIFont systemFontOfSize:16],NSShadowAttributeName:shadow};
     
 }
 
