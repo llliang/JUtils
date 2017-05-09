@@ -226,7 +226,7 @@ static struct TimeValid timeValid;
 }
 
 + (AFSecurityPolicy *)buildCustomSecurityPolicy {
-    return [AFSecurityPolicy defaultPolicy];
+    return nil;
 }
 
 + (NSString *)httpHeaderAuthorization {
