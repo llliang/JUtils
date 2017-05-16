@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "JUtils"
-  s.version      = "0.4.3"
+  s.version      = "0.4.4"
   s.summary      = "utils"
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -90,7 +90,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "JUtils/*.h","JUtils/*.bundle"
+  s.source_files  = "JUtils/*.h"
   #s.exclude_files = "Classes/Exclude"
 
   #s.public_header_files = "JUtils/*.h"
@@ -108,6 +108,10 @@ Pod::Spec.new do |s|
   # s.resources = "Resources/*.png"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
+
+ s.subspec 'JUtil.bundle' do bundle|
+              bundle.source_files = 'JUtils/JUtil.bundle/*'
+    end
 
     s.subspec 'Category' do |category|
               category.source_files = 'JUtils/Category/*'

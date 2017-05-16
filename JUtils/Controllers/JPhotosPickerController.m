@@ -89,7 +89,7 @@
 
 - (void)setMaxNumber:(NSInteger)maxNumber {
     _maxNumber = maxNumber;
-    _countLabel.text = [NSString stringWithFormat:@"确定\n0/%ld",self.maxNumber];
+    _countLabel.text = [NSString stringWithFormat:@"确定\n0/%@",@(self.maxNumber)];
 }
 
 - (void)setAssets:(NSArray *)assets {
@@ -103,7 +103,7 @@
         _sureButton.backgroundColor = [UIColor colorWithHexString:@"c1c1c1" alpha:1];
     }
     
-    _countLabel.text = [NSString stringWithFormat:@"确定\n%ld/%ld",assets.count,self.maxNumber];    
+    _countLabel.text = [NSString stringWithFormat:@"确定\n%@/%@",@(assets.count),@(self.maxNumber)];    
     [_container makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [_container removeAllObjects];
     
