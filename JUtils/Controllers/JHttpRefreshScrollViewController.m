@@ -49,7 +49,7 @@
     
     _noDataView = [self createNoDataView];
     _noDataView.autoresizingMask =  UIViewAutoresizingFlexibleHeight;
-//    [_containerView addSubview:_noDataView];
+    [_containerView addSubview:_noDataView];
     
     _noDataView.hidden = YES;
     

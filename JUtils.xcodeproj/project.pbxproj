@@ -60,6 +60,8 @@
 		37E74C961E9F7E4B00FF705C /* UIView+animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C6D1E9F7E4A00FF705C /* UIView+animation.m */; };
 		37E74C971E9F7E4B00FF705C /* UIView+frame.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C6E1E9F7E4A00FF705C /* UIView+frame.h */; };
 		37E74C981E9F7E4B00FF705C /* UIView+frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C6F1E9F7E4A00FF705C /* UIView+frame.m */; };
+		37EB11BE1ECBE60A00F2CE52 /* JExceptionsManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 37EB11BC1ECBE60A00F2CE52 /* JExceptionsManager.h */; };
+		37EB11BF1ECBE60A00F2CE52 /* JExceptionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EB11BD1ECBE60A00F2CE52 /* JExceptionsManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +121,8 @@
 		37E74C6D1E9F7E4A00FF705C /* UIView+animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+animation.m"; sourceTree = "<group>"; };
 		37E74C6E1E9F7E4A00FF705C /* UIView+frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+frame.h"; sourceTree = "<group>"; };
 		37E74C6F1E9F7E4A00FF705C /* UIView+frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+frame.m"; sourceTree = "<group>"; };
+		37EB11BC1ECBE60A00F2CE52 /* JExceptionsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JExceptionsManager.h; sourceTree = "<group>"; };
+		37EB11BD1ECBE60A00F2CE52 /* JExceptionsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JExceptionsManager.m; sourceTree = "<group>"; };
 		383B8A4C88F39B2378E980FE /* Pods-JUtils.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JUtils.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JUtils/Pods-JUtils.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -187,6 +191,8 @@
 			children = (
 				37E74C4C1E9F7E4A00FF705C /* JCacheManager.h */,
 				37E74C4D1E9F7E4A00FF705C /* JCacheManager.m */,
+				37EB11BC1ECBE60A00F2CE52 /* JExceptionsManager.h */,
+				37EB11BD1ECBE60A00F2CE52 /* JExceptionsManager.m */,
 				37E74C4E1E9F7E4A00FF705C /* JHttpManager.h */,
 				37E74C4F1E9F7E4A00FF705C /* JHttpManager.m */,
 				37E74C501E9F7E4A00FF705C /* JHud.h */,
@@ -301,6 +307,7 @@
 				37E74C7C1E9F7E4B00FF705C /* JHud.h in Headers */,
 				37E74C8C1E9F7E4B00FF705C /* Category.h in Headers */,
 				37E74C841E9F7E4B00FF705C /* JBaseViewController.h in Headers */,
+				37EB11BE1ECBE60A00F2CE52 /* JExceptionsManager.h in Headers */,
 				37E74C971E9F7E4B00FF705C /* UIView+frame.h in Headers */,
 				37E573831EAD918800ED2D42 /* UIApplication+version.h in Headers */,
 			);
@@ -411,6 +418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37EB11BF1ECBE60A00F2CE52 /* JExceptionsManager.m in Sources */,
 				37E74C891E9F7E4B00FF705C /* JHttpRefreshScrollViewController.m in Sources */,
 				37E74C8E1E9F7E4B00FF705C /* NSString+function.m in Sources */,
 				37E74C811E9F7E4B00FF705C /* JDataModel.m in Sources */,

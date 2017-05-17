@@ -160,12 +160,12 @@
         [self.contentView addSubview:_imageView];
         
         _maskView = [[UIView alloc] initWithFrame:self.bounds];
-        _maskView.backgroundColor = [UIColor colorWithHexString:@"000000" alpha:0.7];
+        _maskView.backgroundColor = [UIColor colorWithHexString:@"000000" alpha:0.3];
         [self.contentView addSubview:_maskView];
         _maskView.hidden = YES;
         
         _markedImageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.frame.size.width - 4 - 15, 4, 15, 15)];
-        _markedImageView.image = [self getImageFromBundle:@"imagepicker_unselected"];//[UIImage imageNamed:@"imagepicker_unselected"];
+        _markedImageView.image = [self getImageFromBundle:@"imagepicker_unselected"];
         [self.contentView addSubview:_markedImageView];
     }
     return self;
@@ -175,18 +175,15 @@
     [super setSelected:selected];
     _maskView.hidden = !selected;
     if (selected) {
-        _markedImageView.image = [UIImage imageNamed:@"imagepicker_selected"];
+        _markedImageView.image = [self getImageFromBundle:@"imagepicker_selected"];
     } else {
         _markedImageView.image = [self getImageFromBundle:@"imagepicker_unselected"];
-        
     }
 }
 
 - (UIImage *)getImageFromBundle:(NSString *)imageName {
     NSString *bundlePath = [[NSBundle mainBundle].resourcePath stringByAppendingPathComponent:@"JUtil.bundle"];
-    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
-    NSString *img_path = [bundle pathForResource:imageName ofType:@"png"];
-    return [UIImage imageWithContentsOfFile:img_path];
+    return [UIImage imageWithContentsOfFile:[bundlePath stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@",imageName]]];
 }
 
 - (void)setAsset:(PHAsset *)asset {
