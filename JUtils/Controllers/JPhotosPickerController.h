@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <Photos/Photos.h>
+#import "JBaseViewController.h"
 
 typedef void(^PickerFinished)(NSArray *assets);
 
-@interface JPhotosPickerController : UICollectionViewController
+@interface JPhotosPickerController : JBaseViewController
 
 /// 最小选择数 default 1
 @property (nonatomic, assign) NSInteger minNumberOfSelection;

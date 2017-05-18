@@ -208,6 +208,8 @@
     PhotosBottomContainerView *_bottomView;
 }
 
+@property (nonatomic, strong) UICollectionView *collectionView;
+
 @end
 
 @implementation JPhotosPickerController
@@ -230,30 +232,27 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (instancetype)initWithCollectionViewLayout:(UICollectionViewLayout *)layout {
-    self = [super initWithCollectionViewLayout:layout];
     
-    if (self) {
-        // View settings
-        self.collectionView.backgroundColor = [UIColor whiteColor];
-        
-        // Register cell class
-        [self.collectionView registerClass:[PhotosCollectionViewCell class]
-                forCellWithReuseIdentifier:reuseIdentifier];
-        self.collectionView.allowsMultipleSelection = YES;
-        
-        self.collectionView.alwaysBounceVertical = YES;
-        if (self.collectionView.contentSize.height <= self.collectionView.frame.size.height) {
-            [self.collectionView setContentSize:CGSizeMake(self.collectionView.contentSize.width, self.collectionView.contentSize.height+1)];
-        }
-        
-        _bottomView = [[PhotosBottomContainerView alloc] initWithFrame:CGRectMake(0, self.view.height - 70, self.view.width, 70)];
-        _bottomView.delegate = self;
-        _bottomView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin;
-        [self.view addSubview:_bottomView];
-        
-        self.collectionView.frame = CGRectMake(self.collectionView.frame.origin.x, self.collectionView.frame.origin.y, self.collectionView.frame.size.width, self.collectionView.frame.size.height - _bottomView.height);
-        self.collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    
+    // Register cell class
+    [self.collectionView registerClass:[PhotosCollectionViewCell class]
+            forCellWithReuseIdentifier:reuseIdentifier];
+    self.collectionView.allowsMultipleSelection = YES;
+    
+    self.collectionView.alwaysBounceVertical = YES;
+    if (self.collectionView.contentSize.height <= self.collectionView.frame.size.height) {
+        [self.collectionView setContentSize:CGSizeMake(self.collectionView.contentSize.width, self.collectionView.contentSize.height+1)];
     }
+    
+    _bottomView = [[PhotosBottomContainerView alloc] initWithFrame:CGRectMake(0, self.view.height - 70, self.view.width, 70)];
+    _bottomView.delegate = self;
+    _bottomView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin;
+    [self.view addSubview:_bottomView];
+    
+    self.collectionView.frame = CGRectMake(self.collectionView.frame.origin.x, self.collectionView.frame.origin.y, self.collectionView.frame.size.width, self.collectionView.frame.size.height - _bottomView.height);
+    self.collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+
     
     return self;
 }
