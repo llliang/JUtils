@@ -202,7 +202,7 @@
 
 #pragma mark ------------ separator -------------
 
-@interface JPhotosPickerController () <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource,PhotosBottomContainerViewDelegate> {
+@interface JPhotosPickerController () <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate,PhotosBottomContainerViewDelegate> {
     PHFetchResult *_fetchResult;
     
     NSMutableArray *_selectedArray;
@@ -250,7 +250,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
     _bottomView = [[PhotosBottomContainerView alloc] initWithFrame:CGRectMake(0, self.view.height - 70, self.view.width, 70)];
     _bottomView.delegate = self;
-    _bottomView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin;
+    _bottomView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
     [self.view addSubview:_bottomView];
     
     self.collectionView.frame = CGRectMake(self.collectionView.frame.origin.x, self.collectionView.frame.origin.y, self.collectionView.frame.size.width, self.collectionView.frame.size.height - _bottomView.height);
@@ -291,7 +291,7 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (BOOL)canSelect {
-    if (_minNumberOfSelection >= _maxNumberOfSelection) {
+    if (_minNumberOfSelection > _maxNumberOfSelection) {
         return NO;
     }
     
@@ -308,7 +308,6 @@ static NSString * const reuseIdentifier = @"Cell";
     return 1;
 }
 
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return _fetchResult.count;
 }
@@ -319,7 +318,6 @@ static NSString * const reuseIdentifier = @"Cell";
     cell.asset = [_fetchResult objectAtIndex:indexPath.row];
     return cell;
 }
-
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 
