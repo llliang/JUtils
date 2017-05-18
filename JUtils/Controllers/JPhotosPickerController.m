@@ -9,6 +9,7 @@
 #import "JPhotosPickerController.h"
 #import "UIView+frame.h"
 #import "UIColor+hex.h"
+#import "JHud.h"
 
 @interface PhotosAssetsCollectionViewLayout : UICollectionViewFlowLayout
 
@@ -201,7 +202,7 @@
 
 #pragma mark ------------ separator -------------
 
-@interface JPhotosPickerController () <UICollectionViewDelegateFlowLayout, PhotosBottomContainerViewDelegate> {
+@interface JPhotosPickerController () <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource,PhotosBottomContainerViewDelegate> {
     PHFetchResult *_fetchResult;
     
     NSMutableArray *_selectedArray;
@@ -233,7 +234,9 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (instancetype)initWithCollectionViewLayout:(UICollectionViewLayout *)layout {
     
-    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
     
     // Register cell class
     [self.collectionView registerClass:[PhotosCollectionViewCell class]
@@ -252,7 +255,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
     self.collectionView.frame = CGRectMake(self.collectionView.frame.origin.x, self.collectionView.frame.origin.y, self.collectionView.frame.size.width, self.collectionView.frame.size.height - _bottomView.height);
     self.collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-
+    [self.view addSubview:self.collectionView];
     
     return self;
 }
@@ -265,6 +268,20 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+    
+    if (status == PHAuthorizationStatusNotDetermined) {
+        [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+            if (status == PHAuthorizationStatusAuthorized) {
+                _fetchResult = [self getPhotosResult];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.collectionView reloadData];
+                });
+            }
+        }];
+    } else if (status != PHAuthorizationStatusAuthorized) {
+        [JHud showContent:@"相册权限受限"];
+    }
 }
 
 - (PHFetchResult *)getPhotosResult {
