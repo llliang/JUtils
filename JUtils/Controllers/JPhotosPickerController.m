@@ -341,7 +341,10 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark ----- delegate 
 
 - (void)bottomContainerSure {
-    
+    if (_finishedBlock) {
+        _finishedBlock(_selectedArray);
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 @end

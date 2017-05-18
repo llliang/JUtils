@@ -261,6 +261,7 @@ static const CGFloat kImageHeight = 50.0f;
         _hudContentLabel.top = _hudImageView.bottom + 15;
     }else if (activity) {
         _hudIndicatorView.hidden = NO;
+        [_hudIndicatorView startAnimating];
         _hudImageView.hidden = YES;
         _hudIndicatorView.center = CGPointMake(kDefaultHudWidth/2, 15+_hudIndicatorView.height/2);
         _hudContentLabel.top = _hudIndicatorView.bottom + 15;

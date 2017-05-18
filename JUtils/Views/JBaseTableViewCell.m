@@ -25,7 +25,7 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         _sepLineView = [[JOnePixLineView alloc] initWithFrame:CGRectMake(0.f, self.height-1, self.width, 1)];
-        _sepLineView.lineColor = [UIColor colorWithHexString:@"000000" alpha:0.2];
+        _sepLineView.lineColor = [UIColor colorWithHexString:@"e1e1e1" alpha:1];
         _sepLineView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth;
         [self.contentView addSubview:_sepLineView];
     }
