@@ -191,9 +191,9 @@
     _asset = asset;
     
     PHImageRequestOptions *option = [[PHImageRequestOptions alloc] init];  
-    option.resizeMode = PHImageRequestOptionsResizeModeFast;
+    option.resizeMode = PHImageRequestOptionsResizeModeExact;
     option.networkAccessAllowed = YES; 
-    [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:_imageView.bounds.size contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+    [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:CGSizeMake(_imageView.bounds.size.width * 2, _imageView.bounds.size.height * 2) contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         _imageView.image = result; 
     }];
 }
@@ -286,7 +286,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (PHFetchResult *)getPhotosResult {
     PHFetchOptions *options = [[PHFetchOptions alloc] init];
-    options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:YES]];  
+    options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];  
     return [PHAsset fetchAssetsWithMediaType:self.mediaType options:options];
 }
 
