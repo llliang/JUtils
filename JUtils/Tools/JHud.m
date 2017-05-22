@@ -274,6 +274,7 @@ static const CGFloat kImageHeight = 50.0f;
     _hudContentLabel.left = 15;
     
     self.height = _hudContentLabel.bottom + 15;
+    _hudIndicatorView.center = CGPointMake(self.width/2, self.height/2);
 }
 
 @end
