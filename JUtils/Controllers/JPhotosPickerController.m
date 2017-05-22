@@ -120,9 +120,9 @@
         _scrollView.contentSize = CGSizeMake(MAX(_scrollView.width + 1, item.right + 1), _scrollView.height);
         
         PHImageRequestOptions *option = [[PHImageRequestOptions alloc] init];  
-        option.resizeMode = PHImageRequestOptionsResizeModeFast;
+        option.resizeMode = PHImageRequestOptionsResizeModeExact;
         option.networkAccessAllowed = YES; 
-        [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:item.bounds.size contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:CGSizeMake(item.bounds.size.width*2, item.bounds.size.height*2) contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
             [item setBackgroundImage:result forState:UIControlStateNormal];
         }];
     }];
@@ -218,8 +218,9 @@
 static NSString * const reuseIdentifier = @"Cell";
 
 - (instancetype)init {
-    self = [self initWithCollectionViewLayout:[[PhotosAssetsCollectionViewLayout alloc] init]];
+    self = [super init];
     if (self) {
+        [self initializeCollectionViewWithLayout:[[PhotosAssetsCollectionViewLayout alloc] init]];
         _spacing = 5;
         _columnNumber = 4;
         _bottomView.maxNumber = _maxNumberOfSelection = 1;
@@ -232,7 +233,7 @@ static NSString * const reuseIdentifier = @"Cell";
     return self;
 }
 
-- (instancetype)initWithCollectionViewLayout:(UICollectionViewLayout *)layout {
+- (void)initializeCollectionViewWithLayout:(UICollectionViewLayout *)layout {
     
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
     self.collectionView.delegate = self;
@@ -256,8 +257,6 @@ static NSString * const reuseIdentifier = @"Cell";
     self.collectionView.frame = CGRectMake(self.collectionView.frame.origin.x, self.collectionView.frame.origin.y, self.collectionView.frame.size.width, self.collectionView.frame.size.height - _bottomView.height);
     self.collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:self.collectionView];
-    
-    return self;
 }
 
 - (void)setMaxNumberOfSelection:(NSInteger)maxNumberOfSelection {
