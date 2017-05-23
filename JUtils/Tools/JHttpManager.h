@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "AFNetworking.h"
+#import <AFNetworking.h>
 
 typedef NS_ENUM(NSUInteger, NetworkStatus) {
     NetworkStatusUnknown          = -1,
