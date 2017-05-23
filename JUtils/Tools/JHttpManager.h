@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <AFNetworking.h>
 
 typedef NS_ENUM(NSUInteger, NetworkStatus) {
     NetworkStatusUnknown          = -1,
@@ -65,7 +64,5 @@ typedef void(^NetworkChangeBlock)(NetworkStatus status);
 
 
 + (NSString *)host;
-
-+ (AFHTTPSessionManager *)manager;
 
 @end

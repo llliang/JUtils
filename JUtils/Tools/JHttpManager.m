@@ -7,6 +7,7 @@
 //
 
 #import "JHttpManager.h"
+#import "AFNetworking.h"
 #import "JHud.h"
 #import "Macros.h"
 
@@ -230,10 +231,6 @@ static struct TimeValid timeValid;
 
 + (NSString *)httpHeaderAuthorization {
     return @"";
-}
-
-+ (AFHTTPSessionManager *)manager {
-    return [AFHTTPSessionManager manager];
 }
 
 
