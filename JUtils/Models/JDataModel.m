@@ -23,6 +23,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         _isReload = YES;
+        _pageNum = 1;
         _fetchLimited = NSIntegerMax;
     }
     return self;
@@ -66,7 +67,7 @@
         [dic setObject:@(_pageNum) forKey:@"pageNum"];
         [dic setObject:@(_fetchLimited) forKey:@"pageSize"];
         
-        [[self httpManager] requestWithMethod:[self method] withParam:[self param] withUrl:[self requestUrl] result:^(id result) {
+        [[self httpManager] requestWithMethod:[self method] withParam:dic withUrl:[self requestUrl] result:^(id result) {
             
             self.loading = NO;
             finishedBlock([self phaseData:result]);
@@ -105,7 +106,7 @@
     }
     
     if ([tmpData isKindOfClass:[NSArray class]]) {
-                
+        
         NSMutableArray *resultArray = [NSMutableArray array];
         
         for (id item in tmpData) {
@@ -121,7 +122,7 @@
             [tmpArray addObjectsFromArray:resultArray];
             self.data = tmpArray;
         }
-
+        
         _pageNum++;
         
     } else {
@@ -140,7 +141,7 @@
 - (void)loadCache {
     NSString *cacheKey = [self cacheKey];
     if (cacheKey && cacheKey.length > 0) {
-       self.data = [[JCacheManager sharedManager] cacheForKey:cacheKey];
+        self.data = [[JCacheManager sharedManager] cacheForKey:cacheKey];
     }
 }
 

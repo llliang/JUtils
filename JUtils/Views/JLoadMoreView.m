@@ -105,11 +105,11 @@
     if (scrollView.contentOffset.y - scrollView.contentInset.bottom >= scrollView.contentSize.height - scrollView.height) {
         if (self.state == JLoadMoreViewStateNormal){
             self.state = JLoadMoreViewStateLoading;
-            BOOL loading = [_delegate loadMoreViewIsLoading:self]; 
-            if (!loading) {
-                [_delegate loadMoreViewDidStartLoad:self];
-            }
         }
+    }
+    BOOL loading = [_delegate loadMoreViewIsLoading:self]; 
+    if (!loading && self.state == JLoadMoreViewStateLoading) {
+        [_delegate loadMoreViewDidStartLoad:self];
     }
 }
 
