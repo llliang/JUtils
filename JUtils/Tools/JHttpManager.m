@@ -7,7 +7,6 @@
 //
 
 #import "JHttpManager.h"
-#import "AFNetworking.h"
 #import "JHud.h"
 #import "Macros.h"
 
@@ -208,12 +207,10 @@ static struct TimeValid timeValid;
 //    [manager.requestSerializer setValue:@"application/json"forHTTPHeaderField:@"Content-Type"];
     manager.responseSerializer = responseSerializer;
     
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.requestSerializer = [self serializer];
 
     // https cer
-    if ([[self class] buildCustomSecurityPolicy]) {
-        manager.securityPolicy = [[self class] buildCustomSecurityPolicy];    
-    }
+    manager.securityPolicy = [[self class] buildCustomSecurityPolicy];
 
     // 授权
     [manager.requestSerializer setValue:[[self class] httpHeaderAuthorization] forHTTPHeaderField:@"Authorization"];
@@ -233,5 +230,8 @@ static struct TimeValid timeValid;
     return @"";
 }
 
++ (AFHTTPRequestSerializer *)serializer {
+    return [AFJSONRequestSerializer serializer];
+}
 
 @end

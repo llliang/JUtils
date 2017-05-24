@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "AFNetworking.h"
 
 typedef NS_ENUM(NSUInteger, NetworkStatus) {
     NetworkStatusUnknown          = -1,
@@ -62,7 +63,8 @@ typedef void(^NetworkChangeBlock)(NetworkStatus status);
 // 校验服务器时间与本地时间最大差值
 + (BOOL)serviceDateValid;
 
-
 + (NSString *)host;
+
++ (AFHTTPRequestSerializer *)serializer;
 
 @end
