@@ -9,6 +9,7 @@
 #import "JHttpManager.h"
 #import "JHud.h"
 #import "Macros.h"
+#import "AFNetworking.h"
 
 struct TimeValid {
     BOOL valid;
