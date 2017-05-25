@@ -24,7 +24,7 @@
     if (self = [super init]) {
         _isReload = YES;
         _pageNum = 1;
-        _fetchLimited = NSIntegerMax;
+        _fetchLimited = 20; // 若无指定默认20条
     }
     return self;
 }
