@@ -45,4 +45,49 @@
     return resultImage;
 }
 
++ (void)compressImage:(UIImage *)image toSize:(CGSize)size referenceFileSize:(double)fileSize result:(void(^)(UIImage *resultImage))result {
+    
+    __block CGFloat compression = 0.8f;
+    CGFloat minCompression = 0.1;
+
+    UIImage *tempImage = [image scaleToSize:size];
+    __block NSData *imageData = UIImageJPEGRepresentation(tempImage, compression);
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        while (imageData.length > fileSize && compression > minCompression) {
+            compression -= 0.1;
+            imageData = UIImageJPEGRepresentation(tempImage, compression);
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            result([UIImage imageWithData:imageData]);
+        });
+    });
+}
+
++ (void)compressImages:(NSArray<UIImage *> *)images toSize:(CGSize)size referenceFileSize:(double)fileSize result:(void(^)(NSArray<UIImage *> *resultImage))result {
+    
+    __block CGFloat compression = 0.8f;
+    CGFloat minCompression = 0.1;
+    
+    __block NSMutableArray *resultImages = [NSMutableArray array];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        for (UIImage *image in images) {
+            
+            UIImage *tempImage = [image scaleToSize:size];
+            __block NSData *imageData = UIImageJPEGRepresentation(tempImage, compression);
+
+            while (imageData.length > fileSize && compression > minCompression) {
+                compression -= 0.1;
+                imageData = UIImageJPEGRepresentation(tempImage, compression);
+            }
+            UIImage *newImage = [UIImage imageWithData:imageData];
+            [resultImages addObject:newImage];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            result(resultImages);
+        });
+    });
+}
+
 @end

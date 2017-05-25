@@ -66,3 +66,8 @@ FOUNDATION_EXPORT const unsigned char JUtilsVersionString[];
 #import "JHttpRefreshScrollViewController.h"
 #import "JNavigationController.h"
 #import "Macros.h"
+#import "JPhotosPickerController.h"
+
+
+
+
