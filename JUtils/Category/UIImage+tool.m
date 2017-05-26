@@ -45,7 +45,7 @@
     return resultImage;
 }
 
-+ (void)compressImage:(UIImage *)image toSize:(CGSize)size referenceFileSize:(double)fileSize result:(void(^)(UIImage *resultImage))result {
++ (void)compressImage:(UIImage *)image toSize:(CGSize)size referenceFileSize:(double)fileSize result:(void(^)(NSData *imageData))result {
     
     __block CGFloat compression = 0.8f;
     CGFloat minCompression = 0.1;
@@ -59,12 +59,12 @@
             imageData = UIImageJPEGRepresentation(tempImage, compression);
         }
         dispatch_async(dispatch_get_main_queue(), ^{
-            result([UIImage imageWithData:imageData]);
+            result(imageData);
         });
     });
 }
 
-+ (void)compressImages:(NSArray<UIImage *> *)images toSize:(CGSize)size referenceFileSize:(double)fileSize result:(void(^)(NSArray<UIImage *> *resultImage))result {
++ (void)compressImages:(NSArray<UIImage *> *)images toSize:(CGSize)size referenceFileSize:(double)fileSize result:(void(^)(NSArray<NSData *> *resultImage))result {
     
     __block CGFloat compression = 0.8f;
     CGFloat minCompression = 0.1;
@@ -81,8 +81,7 @@
                 compression -= 0.1;
                 imageData = UIImageJPEGRepresentation(tempImage, compression);
             }
-            UIImage *newImage = [UIImage imageWithData:imageData];
-            [resultImages addObject:newImage];
+            [resultImages addObject:imageData];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             result(resultImages);

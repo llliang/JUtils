@@ -18,17 +18,17 @@
 - (UIImage *)scaleToSize:(CGSize)size;
 
 /*
- @brief 单张图片压缩
+ @brief 单张图片压缩 为了应对data 转成uiimage size 变大的问题 统一返回data格式
  @pragma size 尺寸
  @pragma fileSize eg:100*1024 // 100k 最低参考值
  */
-+ (void)compressImage:(UIImage *)image toSize:(CGSize)size referenceFileSize:(double)fileSize result:(void(^)(UIImage *resultImage))result;
++ (void)compressImage:(UIImage *)image toSize:(CGSize)size referenceFileSize:(double)fileSize result:(void(^)(NSData *imageData))result;
 
 /*
- @brief 单张图片压缩
+ @brief 单张图片压缩 为了应对data 转成uiimage size 变大的问题 统一返回data格式
  @pragma size 尺寸
  @pragma fileSize eg:100*1024 // 100k 最低参考值
  */
-+ (void)compressImages:(NSArray<UIImage *> *)images toSize:(CGSize)size referenceFileSize:(double)fileSize result:(void(^)(NSArray<UIImage *> *resultImage))result;
++ (void)compressImages:(NSArray<UIImage *> *)images toSize:(CGSize)size referenceFileSize:(double)fileSize result:(void(^)(NSArray<NSData *> *resultImage))result;
 
 @end

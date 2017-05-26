@@ -38,21 +38,23 @@ static struct TimeValid timeValid;
     return networkStatus;
 }
 
-+ (void)requestWithMethod:(HTTPMethod)method withParam:(NSDictionary *)param withUrl:(NSString *)url result:(void (^)(id))result failure:(void (^)(NSError *))failure {
++ (NSURLSessionDataTask *)requestWithMethod:(HTTPMethod)method withParam:(NSDictionary *)param withUrl:(NSString *)url result:(void (^)(id))result failure:(void (^)(NSError *))failure {
     NSInteger netStatus = [[self class] getNetworkStatus];
     
     if (netStatus == -1 || netStatus == 0) {
         [JHud showContent:@"网络异常"];
         failure(nil);
-        return;
+        return nil;
     }
     JLog(@"\nhttp url = %@",[NSString stringWithFormat:@"%@%@",[[self class] host],url] );
     
     AFHTTPSessionManager *manager = [[self class] initializeAFManager];
-    
     [manager.requestSerializer setTimeoutInterval:30];
+    
+    NSURLSessionDataTask *task;
+    
     if (method == HTTPMethodGET) {
-        [manager GET:[NSString stringWithFormat:@"%@%@",[[self class] host],url] parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
+        task = [manager GET:[NSString stringWithFormat:@"%@%@",[[self class] host],url] parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
@@ -77,7 +79,7 @@ static struct TimeValid timeValid;
             failure(error);
         }];
     } else if (method == HTTPMethodPOST) {
-        [manager POST:[NSString stringWithFormat:@"%@%@",[[self class] host],url] parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
+        task = [manager POST:[NSString stringWithFormat:@"%@%@",[[self class] host],url] parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
@@ -101,6 +103,7 @@ static struct TimeValid timeValid;
             failure(error);
         }];
     }
+    return task;
 }
 
 + (BOOL)specialHandle:(NSHTTPURLResponse *)response responseObject:(id)object {
@@ -126,20 +129,20 @@ static struct TimeValid timeValid;
     return NO;
 }
 
-+ (void)uploadDatas:(NSArray *)datas withMethod:(HTTPMethod)method withTitles:(NSArray *)titles withParam:(NSDictionary *)param withUrl:(NSString *)url progress:(void(^)(CGFloat progress))progress result:(void(^)(id result))result failure:(void(^)(NSError *error))failure {
++ (NSURLSessionDataTask *)uploadDatas:(NSArray *)datas withMethod:(HTTPMethod)method withTitles:(NSArray *)titles withParam:(NSDictionary *)param withUrl:(NSString *)url progress:(void(^)(CGFloat progress))progress result:(void(^)(id result))result failure:(void(^)(NSError *error))failure {
     
     NSInteger netStatus = [[self class] getNetworkStatus];
     
     if (netStatus == -1 || netStatus == 1) {
         [JHud showContent:@"网络异常"];
         failure(nil);
-        return;
+        return nil;
     }
     
     AFHTTPSessionManager *manager = [[self class] initializeAFManager];
     JLog(@"\nhttp url = %@",[NSString stringWithFormat:@"%@%@",[[self class] host],url] );
 
-    [manager POST:[NSString stringWithFormat:@"%@%@",[[self class] host],url] parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    NSURLSessionDataTask *task = [manager POST:[NSString stringWithFormat:@"%@%@",[[self class] host],url] parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
         if (datas.count == titles.count) {
             for (int i = 0; i < datas.count; i++) {
@@ -167,9 +170,10 @@ static struct TimeValid timeValid;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error);
     }];
+    return task;
 }
 
-+ (void)downloadWithParam:(NSDictionary *)param withUrl:(NSString *)url progress:(void(^)(CGFloat progress))progress destination:(NSURL * (^)())destination result:(void(^)(NSURL *filePath))result failure:(void(^)(NSError *error))failure {
++ (NSURLSessionDownloadTask *)downloadWithParam:(NSDictionary *)param withUrl:(NSString *)url progress:(void(^)(CGFloat progress))progress destination:(NSURL * (^)())destination result:(void(^)(NSURL *filePath))result failure:(void(^)(NSError *error))failure {
     
     
     NSInteger netStatus = [[self class] getNetworkStatus];
@@ -177,7 +181,7 @@ static struct TimeValid timeValid;
     if (netStatus == -1 || netStatus == 1) {
         [JHud showContent:@"网络异常"];
         failure(nil);
-        return;
+        return nil;
     }
     
     AFHTTPSessionManager *manager = [[self class] initializeAFManager];
@@ -196,6 +200,7 @@ static struct TimeValid timeValid;
         result(filePath);
     }];
     [task resume];
+    return task;
 }
 
 + (AFHTTPSessionManager *)initializeAFManager {
