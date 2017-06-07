@@ -112,9 +112,13 @@
         
         if ([cls isSubclassOfClass:[NSArray class]]) {
             NSMutableArray *tempArray = [NSMutableArray array];
-            for (JEntity *item in value) {
-                NSMutableDictionary *tempDic = [item reserveEntity];
-                [tempArray addObject:tempDic];
+            for (id item in value) {
+                if ([item isKindOfClass:[JEntity class]]) {
+                    NSMutableDictionary *tempDic = [(JEntity *)item reserveEntity];
+                    [tempArray addObject:tempDic];
+                } else {
+                    [tempArray addObject:item];
+                }
             }
             [dic setValue:tempArray forKey:[self filterString:propertyName]];
         } else if ([cls isSubclassOfClass:[JEntity class]]) {

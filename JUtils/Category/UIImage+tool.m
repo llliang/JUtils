@@ -47,7 +47,7 @@
 
 + (void)compressImage:(UIImage *)image toSize:(CGSize)size referenceFileSize:(double)fileSize result:(void(^)(NSData *imageData))result {
     
-    __block CGFloat compression = 0.8f;
+    __block CGFloat compression = 1.f;
     CGFloat minCompression = 0.1;
 
     UIImage *tempImage = [image scaleToSize:size];
@@ -66,7 +66,7 @@
 
 + (void)compressImages:(NSArray<UIImage *> *)images toSize:(CGSize)size referenceFileSize:(double)fileSize result:(void(^)(NSArray<NSData *> *resultImage))result {
     
-    __block CGFloat compression = 0.8f;
+    __block CGFloat compression = 1.f;
     CGFloat minCompression = 0.1;
     
     __block NSMutableArray *resultImages = [NSMutableArray array];

@@ -10,7 +10,7 @@
 #import <Photos/Photos.h>
 #import "JBaseViewController.h"
 
-typedef void(^PickerFinished)(NSMutableArray *assets);
+typedef void(^PickerFinished)(NSMutableArray<PHAsset *> *assets);
 
 @interface JPhotosPickerController : JBaseViewController
 
