@@ -10,6 +10,7 @@
 #define Category_h
 
 
+    #import "NSDictionary+safety.h"
     #import "NSString+size.h"
     #import "NSString+function.h"
     #import "UIView+frame.h"    

@@ -14,6 +14,8 @@
 		377E82E51ECAEE2600A571F7 /* JPhotosPickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 377E82E31ECAEE2600A571F7 /* JPhotosPickerController.h */; };
 		37844A391EA783FF00ED0763 /* UIBarButtonItem+custom.h in Headers */ = {isa = PBXBuildFile; fileRef = 37844A371EA783FF00ED0763 /* UIBarButtonItem+custom.h */; };
 		37844A3A1EA783FF00ED0763 /* UIBarButtonItem+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 37844A381EA783FF00ED0763 /* UIBarButtonItem+custom.m */; };
+		37DA426E1EEA33D400EA2E26 /* NSDictionary+safety.h in Headers */ = {isa = PBXBuildFile; fileRef = 37DA426C1EEA33D400EA2E26 /* NSDictionary+safety.h */; };
+		37DA426F1EEA33D400EA2E26 /* NSDictionary+safety.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DA426D1EEA33D400EA2E26 /* NSDictionary+safety.m */; };
 		37E5737F1EAD888300ED2D42 /* UIAlertView+block.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E5737D1EAD888300ED2D42 /* UIAlertView+block.m */; };
 		37E573801EAD888300ED2D42 /* UIAlertView+block.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E5737E1EAD888300ED2D42 /* UIAlertView+block.h */; };
 		37E573831EAD918800ED2D42 /* UIApplication+version.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E573811EAD918800ED2D42 /* UIApplication+version.h */; };
@@ -73,6 +75,8 @@
 		377E82E31ECAEE2600A571F7 /* JPhotosPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPhotosPickerController.h; sourceTree = "<group>"; };
 		37844A371EA783FF00ED0763 /* UIBarButtonItem+custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+custom.h"; sourceTree = "<group>"; };
 		37844A381EA783FF00ED0763 /* UIBarButtonItem+custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+custom.m"; sourceTree = "<group>"; };
+		37DA426C1EEA33D400EA2E26 /* NSDictionary+safety.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+safety.h"; sourceTree = "<group>"; };
+		37DA426D1EEA33D400EA2E26 /* NSDictionary+safety.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+safety.m"; sourceTree = "<group>"; };
 		37E5737D1EAD888300ED2D42 /* UIAlertView+block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+block.m"; sourceTree = "<group>"; };
 		37E5737E1EAD888300ED2D42 /* UIAlertView+block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+block.h"; sourceTree = "<group>"; };
 		37E573811EAD918800ED2D42 /* UIApplication+version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+version.h"; sourceTree = "<group>"; };
@@ -236,6 +240,8 @@
 			isa = PBXGroup;
 			children = (
 				37E74C631E9F7E4A00FF705C /* Category.h */,
+				37DA426C1EEA33D400EA2E26 /* NSDictionary+safety.h */,
+				37DA426D1EEA33D400EA2E26 /* NSDictionary+safety.m */,
 				37E74C641E9F7E4A00FF705C /* NSString+function.h */,
 				37E74C651E9F7E4A00FF705C /* NSString+function.m */,
 				37E74C661E9F7E4A00FF705C /* NSString+size.h */,
@@ -301,6 +307,7 @@
 				37E74C781E9F7E4B00FF705C /* JCacheManager.h in Headers */,
 				37E74C821E9F7E4B00FF705C /* JEntity.h in Headers */,
 				37E74C861E9F7E4B00FF705C /* JHttpRefreshLoadMoreScrollViewController.h in Headers */,
+				37DA426E1EEA33D400EA2E26 /* NSDictionary+safety.h in Headers */,
 				37E74C8F1E9F7E4B00FF705C /* NSString+size.h in Headers */,
 				37E74C951E9F7E4B00FF705C /* UIView+animation.h in Headers */,
 				37E74C741E9F7E4B00FF705C /* JOnePixLineView.h in Headers */,
@@ -424,6 +431,7 @@
 				37E74C811E9F7E4B00FF705C /* JDataModel.m in Sources */,
 				37E74C791E9F7E4B00FF705C /* JCacheManager.m in Sources */,
 				37844A3A1EA783FF00ED0763 /* UIBarButtonItem+custom.m in Sources */,
+				37DA426F1EEA33D400EA2E26 /* NSDictionary+safety.m in Sources */,
 				37E74C961E9F7E4B00FF705C /* UIView+animation.m in Sources */,
 				37E74C731E9F7E4B00FF705C /* JLoadMoreView.m in Sources */,
 				37E74C831E9F7E4B00FF705C /* JEntity.m in Sources */,
