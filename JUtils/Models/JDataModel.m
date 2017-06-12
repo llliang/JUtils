@@ -52,6 +52,7 @@
     _isReload = isReload;
     if (_isReload) {
         _pageNum = 1;
+        _nextKeyValue = nil;
     }
 }
 
