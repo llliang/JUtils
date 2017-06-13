@@ -60,6 +60,7 @@ FOUNDATION_EXPORT const unsigned char JUtilsVersionString[];
 #import "JLoadMoreView.h"
 #import "JOnePixLineView.h"
 #import "JRefreshView.h"
+#import "JLoopScrollView.h"
 
 #import "JBaseViewController.h"
 #import "JHttpRefreshLoadMoreScrollViewController.h"

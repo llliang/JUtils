@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		321BFD797725431AB4E36E16 /* libPods-JUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2736C0DF799D6D8E25DEFC30 /* libPods-JUtils.a */; };
+		3718C8411EEFE8D4006DDAF4 /* JLoopScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3718C83F1EEFE8D4006DDAF4 /* JLoopScrollView.h */; };
+		3718C8421EEFE8D4006DDAF4 /* JLoopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3718C8401EEFE8D4006DDAF4 /* JLoopScrollView.m */; };
 		375E78311EC154D300B5F62C /* Macros.h in Headers */ = {isa = PBXBuildFile; fileRef = 375E78301EC154D300B5F62C /* Macros.h */; };
 		376F335C1ECB13D000AC7F63 /* JUtil.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 376F335B1ECB13D000AC7F63 /* JUtil.bundle */; };
 		377E82E41ECAEE2600A571F7 /* JPhotosPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E82E21ECAEE2600A571F7 /* JPhotosPickerController.m */; };
@@ -69,6 +71,8 @@
 /* Begin PBXFileReference section */
 		17B717150E136AF202CA1A45 /* Pods-JUtils.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JUtils.release.xcconfig"; path = "Pods/Target Support Files/Pods-JUtils/Pods-JUtils.release.xcconfig"; sourceTree = "<group>"; };
 		2736C0DF799D6D8E25DEFC30 /* libPods-JUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JUtils.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3718C83F1EEFE8D4006DDAF4 /* JLoopScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLoopScrollView.h; sourceTree = "<group>"; };
+		3718C8401EEFE8D4006DDAF4 /* JLoopScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLoopScrollView.m; sourceTree = "<group>"; };
 		375E78301EC154D300B5F62C /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		376F335B1ECB13D000AC7F63 /* JUtil.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JUtil.bundle; sourceTree = "<group>"; };
 		377E82E21ECAEE2600A571F7 /* JPhotosPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPhotosPickerController.m; sourceTree = "<group>"; };
@@ -186,6 +190,8 @@
 				37E74C481E9F7E4A00FF705C /* JOnePixLineView.m */,
 				37E74C491E9F7E4A00FF705C /* JRefreshView.h */,
 				37E74C4A1E9F7E4A00FF705C /* JRefreshView.m */,
+				3718C83F1EEFE8D4006DDAF4 /* JLoopScrollView.h */,
+				3718C8401EEFE8D4006DDAF4 /* JLoopScrollView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -309,6 +315,7 @@
 				37E74C861E9F7E4B00FF705C /* JHttpRefreshLoadMoreScrollViewController.h in Headers */,
 				37DA426E1EEA33D400EA2E26 /* NSDictionary+safety.h in Headers */,
 				37E74C8F1E9F7E4B00FF705C /* NSString+size.h in Headers */,
+				3718C8411EEFE8D4006DDAF4 /* JLoopScrollView.h in Headers */,
 				37E74C951E9F7E4B00FF705C /* UIView+animation.h in Headers */,
 				37E74C741E9F7E4B00FF705C /* JOnePixLineView.h in Headers */,
 				37E74C7C1E9F7E4B00FF705C /* JHud.h in Headers */,
@@ -449,6 +456,7 @@
 				37E74C751E9F7E4B00FF705C /* JOnePixLineView.m in Sources */,
 				37E74C871E9F7E4B00FF705C /* JHttpRefreshLoadMoreScrollViewController.m in Sources */,
 				377E82E41ECAEE2600A571F7 /* JPhotosPickerController.m in Sources */,
+				3718C8421EEFE8D4006DDAF4 /* JLoopScrollView.m in Sources */,
 				37E74C921E9F7E4B00FF705C /* UIColor+hex.m in Sources */,
 				37E5737F1EAD888300ED2D42 /* UIAlertView+block.m in Sources */,
 			);
