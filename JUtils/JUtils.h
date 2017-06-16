@@ -61,6 +61,8 @@ FOUNDATION_EXPORT const unsigned char JUtilsVersionString[];
 #import "JOnePixLineView.h"
 #import "JRefreshView.h"
 #import "JLoopScrollView.h"
+#import "JPlaceholderTextView.h"
+#import "JAutoResizeTextView.h"
 
 #import "JBaseViewController.h"
 #import "JHttpRefreshLoadMoreScrollViewController.h"
