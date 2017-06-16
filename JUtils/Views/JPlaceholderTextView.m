@@ -76,6 +76,16 @@
     [self addSubview:_placeholderView];
 }
 
+// 解决直接设置text UITextViewTextDidChangeNotification 不调用的问题
+- (void)setText:(NSString *)text {
+    [super setText:text];
+    if (text == nil || [text isEqualToString:@""]) {
+        _placeholderView.hidden = NO;
+    } else {
+        _placeholderView.hidden = YES;
+    }
+}
+
 - (void)textDidChangeForPlaceholder:(NSNotification *)notification {
     _placeholderView.hidden = (self.text && self.text.length > 0);
 }

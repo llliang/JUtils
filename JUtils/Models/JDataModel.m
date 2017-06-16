@@ -30,9 +30,37 @@
     return self;
 }
 
+/// 应对多app key 不统一的问题
+
+- (NSString *)statusKey {
+    return @"code";
+}
+
+- (NSString *)messageKey {
+    return @"message";
+}
+
+- (NSString *)dataKey {
+    return @"result";
+}
+
+- (NSString *)pageKey {
+    return @"pageNum";
+}
+
+- (NSString *)pageSizeKey {
+    return @"pageSize";
+}
+
+- (NSString *)nextKeyValueKey {
+    return @"nextKeyValueKey";
+}
+
 - (NSString *)cacheKey {
     return nil;
 }
+
+
 
 /// 针对于列表数据传入当前取值的最后一位的关键字的数据 作为分页的关键字段
 /// 若返回有值则根据返回值取出相应的数据传给服务器
@@ -72,10 +100,10 @@
         self.loading = YES;
         
         NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:[self param]];
-        [dic setObject:@(_pageNum) forKey:@"pageNum"];
-        [dic setObject:@(_fetchLimited) forKey:@"pageSize"];
+        [dic setObject:@(_pageNum) forKey:[self pageKey]];
+        [dic setObject:@(_fetchLimited) forKey:[self pageSizeKey]];
         if (_nextKeyValue) {
-            [dic setObject:_nextKeyValue forKey:@"nextKeyValue"];
+            [dic setObject:_nextKeyValue forKey:[self nextValueKey]];
         }
         
         [[self httpManager] requestWithMethod:[self method] withParam:dic withUrl:[self requestUrl] result:^(id result) {
@@ -100,9 +128,9 @@
 }
 
 - (id)phaseData:(id)data {
-    self.status = [[data objectForKey:@"code"] integerValue];
-    self.message = [data objectForKey:@"message"];
-    id tmpData = [data objectForKey:@"result"]; // 目标数据
+    self.status = [[data objectForKey:[self statusKey]] integerValue];
+    self.message = [data objectForKey:[self messageKey]];
+    id tmpData = [data objectForKey:[self dataKey]]; // 目标数据
     // 若返回有问题
     if (self.status != 200 && self.status != 304) {
         return self;
