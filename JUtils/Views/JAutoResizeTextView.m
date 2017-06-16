@@ -64,7 +64,7 @@
 }
 
 - (void)textDidChange:(NSNotification *)notification {
-    
+
     double height = ceil([self sizeThatFits:CGSizeMake(self.bounds.size.width, MAXFLOAT)].height);
     
     

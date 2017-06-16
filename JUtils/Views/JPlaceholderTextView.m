@@ -24,7 +24,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        _placeholderView = [[UITextView alloc] initWithFrame:frame];
+        _placeholderView = [[UITextView alloc] initWithFrame:self.bounds];
         [self layoutPlaceholderView];
         [self addTextChangedNotification];
     }
@@ -43,7 +43,7 @@
 
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
-    _placeholderView.frame = frame;
+    _placeholderView.frame = self.bounds;
 }
 
 - (void)setFont:(UIFont *)font {
@@ -62,10 +62,11 @@
 }
 
 - (void)addTextChangedNotification {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:) name:UITextViewTextDidChangeNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChangeForPlaceholder:) name:UITextViewTextDidChangeNotification object:nil];
 }
 
 - (void)layoutPlaceholderView {
+    _placeholderView.userInteractionEnabled = NO;
     _placeholderView.font = self.font;
     _placeholderView.textColor = [UIColor colorWithWhite:0.7 alpha:1];
     _placeholderView.showsVerticalScrollIndicator = NO;
@@ -75,7 +76,7 @@
     [self addSubview:_placeholderView];
 }
 
-- (void)textDidChange:(NSNotification *)notification {
+- (void)textDidChangeForPlaceholder:(NSNotification *)notification {
     _placeholderView.hidden = (self.text && self.text.length > 0);
 }
 
