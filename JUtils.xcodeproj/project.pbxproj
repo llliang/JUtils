@@ -16,6 +16,10 @@
 		377E82E51ECAEE2600A571F7 /* JPhotosPickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 377E82E31ECAEE2600A571F7 /* JPhotosPickerController.h */; };
 		37844A391EA783FF00ED0763 /* UIBarButtonItem+custom.h in Headers */ = {isa = PBXBuildFile; fileRef = 37844A371EA783FF00ED0763 /* UIBarButtonItem+custom.h */; };
 		37844A3A1EA783FF00ED0763 /* UIBarButtonItem+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 37844A381EA783FF00ED0763 /* UIBarButtonItem+custom.m */; };
+		37D334281EF385F1002AE2EC /* JPlaceholderTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37D334261EF385F1002AE2EC /* JPlaceholderTextView.h */; };
+		37D334291EF385F1002AE2EC /* JPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D334271EF385F1002AE2EC /* JPlaceholderTextView.m */; };
+		37D3342C1EF38636002AE2EC /* JAutoResizeTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37D3342A1EF38636002AE2EC /* JAutoResizeTextView.h */; };
+		37D3342D1EF38636002AE2EC /* JAutoResizeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D3342B1EF38636002AE2EC /* JAutoResizeTextView.m */; };
 		37DA426E1EEA33D400EA2E26 /* NSDictionary+safety.h in Headers */ = {isa = PBXBuildFile; fileRef = 37DA426C1EEA33D400EA2E26 /* NSDictionary+safety.h */; };
 		37DA426F1EEA33D400EA2E26 /* NSDictionary+safety.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DA426D1EEA33D400EA2E26 /* NSDictionary+safety.m */; };
 		37E5737F1EAD888300ED2D42 /* UIAlertView+block.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E5737D1EAD888300ED2D42 /* UIAlertView+block.m */; };
@@ -79,6 +83,10 @@
 		377E82E31ECAEE2600A571F7 /* JPhotosPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPhotosPickerController.h; sourceTree = "<group>"; };
 		37844A371EA783FF00ED0763 /* UIBarButtonItem+custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+custom.h"; sourceTree = "<group>"; };
 		37844A381EA783FF00ED0763 /* UIBarButtonItem+custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+custom.m"; sourceTree = "<group>"; };
+		37D334261EF385F1002AE2EC /* JPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPlaceholderTextView.h; sourceTree = "<group>"; };
+		37D334271EF385F1002AE2EC /* JPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPlaceholderTextView.m; sourceTree = "<group>"; };
+		37D3342A1EF38636002AE2EC /* JAutoResizeTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAutoResizeTextView.h; sourceTree = "<group>"; };
+		37D3342B1EF38636002AE2EC /* JAutoResizeTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAutoResizeTextView.m; sourceTree = "<group>"; };
 		37DA426C1EEA33D400EA2E26 /* NSDictionary+safety.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+safety.h"; sourceTree = "<group>"; };
 		37DA426D1EEA33D400EA2E26 /* NSDictionary+safety.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+safety.m"; sourceTree = "<group>"; };
 		37E5737D1EAD888300ED2D42 /* UIAlertView+block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+block.m"; sourceTree = "<group>"; };
@@ -192,6 +200,10 @@
 				37E74C4A1E9F7E4A00FF705C /* JRefreshView.m */,
 				3718C83F1EEFE8D4006DDAF4 /* JLoopScrollView.h */,
 				3718C8401EEFE8D4006DDAF4 /* JLoopScrollView.m */,
+				37D334261EF385F1002AE2EC /* JPlaceholderTextView.h */,
+				37D334271EF385F1002AE2EC /* JPlaceholderTextView.m */,
+				37D3342A1EF38636002AE2EC /* JAutoResizeTextView.h */,
+				37D3342B1EF38636002AE2EC /* JAutoResizeTextView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -294,6 +306,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37D3342C1EF38636002AE2EC /* JAutoResizeTextView.h in Headers */,
 				37E74C721E9F7E4B00FF705C /* JLoadMoreView.h in Headers */,
 				37E74C701E9F7E4B00FF705C /* JBaseTableViewCell.h in Headers */,
 				37E74C931E9F7E4B00FF705C /* UIImage+tool.h in Headers */,
@@ -311,6 +324,7 @@
 				37E74C8D1E9F7E4B00FF705C /* NSString+function.h in Headers */,
 				37844A391EA783FF00ED0763 /* UIBarButtonItem+custom.h in Headers */,
 				37E74C781E9F7E4B00FF705C /* JCacheManager.h in Headers */,
+				37D334281EF385F1002AE2EC /* JPlaceholderTextView.h in Headers */,
 				37E74C821E9F7E4B00FF705C /* JEntity.h in Headers */,
 				37E74C861E9F7E4B00FF705C /* JHttpRefreshLoadMoreScrollViewController.h in Headers */,
 				37DA426E1EEA33D400EA2E26 /* NSDictionary+safety.h in Headers */,
@@ -435,9 +449,11 @@
 				37EB11BF1ECBE60A00F2CE52 /* JExceptionsManager.m in Sources */,
 				37E74C891E9F7E4B00FF705C /* JHttpRefreshScrollViewController.m in Sources */,
 				37E74C8E1E9F7E4B00FF705C /* NSString+function.m in Sources */,
+				37D3342D1EF38636002AE2EC /* JAutoResizeTextView.m in Sources */,
 				37E74C811E9F7E4B00FF705C /* JDataModel.m in Sources */,
 				37E74C791E9F7E4B00FF705C /* JCacheManager.m in Sources */,
 				37844A3A1EA783FF00ED0763 /* UIBarButtonItem+custom.m in Sources */,
+				37D334291EF385F1002AE2EC /* JPlaceholderTextView.m in Sources */,
 				37DA426F1EEA33D400EA2E26 /* NSDictionary+safety.m in Sources */,
 				37E74C961E9F7E4B00FF705C /* UIView+animation.m in Sources */,
 				37E74C731E9F7E4B00FF705C /* JLoadMoreView.m in Sources */,
