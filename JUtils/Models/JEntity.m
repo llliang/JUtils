@@ -50,7 +50,7 @@
             }
             
             [self setValue:[self recursionArray:tempData forProperty:propertyName] forKey:propertyName];
-        }else if ([cls isSubclassOfClass:[self class]]) {            
+        }else if ([cls isSubclassOfClass:[JEntity class]]) {            
             NSAssert([tempData isKindOfClass:[NSDictionary class]], @"属性和参数不统一");
             
             if (![tempData isKindOfClass:[NSDictionary class]]) {
@@ -65,6 +65,7 @@
             [self setValue:tempData forKey:propertyName];
         }
     }
+    free(properties);
 }   
 
 - (NSArray *)recursionArray:(NSArray *)array forProperty:(NSString *)propertyName {
@@ -128,6 +129,7 @@
             [dic setValue:value forKey:[self filterString:propertyName]];
         }
     }
+    free(properties);
     return dic;
 }
 

@@ -155,7 +155,7 @@ static const CGFloat kImageHeight = 50.0f;
 }
 
 + (void)showActivityIndicatorInView:(UIView *)view needLock:(BOOL)lock {
-    [[JHud instance] showImage:nil content:nil activity:YES withTime:0 needLock:YES inView:nil];
+    [[JHud instance] showImage:nil content:nil activity:YES withTime:0 needLock:lock inView:nil];
 }
 
 + (void)dismiss {
