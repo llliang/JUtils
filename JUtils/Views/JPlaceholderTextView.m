@@ -25,7 +25,9 @@
     self = [super initWithFrame:frame];
     if (self) {
         _placeholderView = [[UITextView alloc] initWithFrame:self.bounds];
-        [self layoutPlaceholderView];
+        [self addSubview:_placeholderView];
+
+        [self setupPlaceholderView];
         [self addTextChangedNotification];
     }
     return self;
@@ -35,7 +37,9 @@
     self = [super init];
     if (self) {
         _placeholderView = [[UITextView alloc] init];
-        [self layoutPlaceholderView];
+        [self addSubview:_placeholderView];
+        
+        [self setupPlaceholderView];
         [self addTextChangedNotification];
     }
     return self;
@@ -65,7 +69,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChangeForPlaceholder:) name:UITextViewTextDidChangeNotification object:nil];
 }
 
-- (void)layoutPlaceholderView {
+- (void)setupPlaceholderView {
     _placeholderView.userInteractionEnabled = NO;
     _placeholderView.font = self.font;
     _placeholderView.textColor = [UIColor colorWithWhite:0.7 alpha:1];
