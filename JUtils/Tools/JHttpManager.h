@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <AFNetworking/AFURLRequestSerialization.h>
+#import <AFNetworking/AFNetworking.h>
 
 typedef NS_ENUM(NSUInteger, NetworkStatus) {
     NetworkStatusUnknown          = -1,
@@ -24,7 +24,7 @@ typedef NS_ENUM(NSUInteger, HTTPMethod) {
 
 typedef void(^NetworkChangeBlock)(NetworkStatus status);
 
-@interface JHttpManager : NSObject
+@interface JHttpManager : AFHTTPSessionManager
 
 + (void)monitorNetworkStatus:(NetworkChangeBlock)block;
 
@@ -32,6 +32,9 @@ typedef void(^NetworkChangeBlock)(NetworkStatus status);
  获取网络状态
  @return NetworkStatus
  */
+
++ (JHttpManager *)manager;
+
 + (NetworkStatus)getNetworkStatus;
 
 /**
@@ -42,8 +45,9 @@ typedef void(^NetworkChangeBlock)(NetworkStatus status);
  @param result 完成回调
  @param failure 失败回调
  */
-+ (NSURLSessionDataTask *)requestWithMethod:(HTTPMethod)method withParam:(NSDictionary *)param withUrl:(NSString *)url result:(void(^)(id result))result failure:(void(^)(NSError *error))failure;
++ (NSURLSessionDataTask *)requestWithMethod:(HTTPMethod)method withParam:(NSDictionary *)param withUrl:(NSString *)url result:(void(^)(id resultObject))result failure:(void(^)(NSError *error))failure;
 
++ (NSURLSessionDataTask *)__requestWithMethod:(HTTPMethod)method withParam:(NSDictionary *)param withUrl:(NSString *)url result:(void(^)(NSURLSessionDataTask *task,id resultObject))result failure:(void(^)(NSError *error))failure;
 
 /**
  上传二进制接口
@@ -55,16 +59,10 @@ typedef void(^NetworkChangeBlock)(NetworkStatus status);
  @param progress 上传进度
  @param result 完成回调
  @param failure 失败回调
- */
+ */ 
 + (NSURLSessionDataTask *)uploadDatas:(NSArray *)datas withMethod:(HTTPMethod)method withTitles:(NSArray *)titles withParam:(NSDictionary *)param withUrl:(NSString *)url progress:(void(^)(CGFloat progress))progress result:(void(^)(id result))result failure:(void(^)(NSError *error))failure;
 
 + (NSURLSessionDownloadTask *)downloadWithParam:(NSDictionary *)param withUrl:(NSString *)url progress:(void(^)(CGFloat progress))progress destination:(NSURL * (^)())destination result:(void(^)(NSURL *filePath))result failure:(void(^)(NSError *error))failure;
 
-// 校验服务器时间与本地时间最大差值
-+ (BOOL)serviceDateValid;
-
-+ (NSString *)host;
-
-+ (AFHTTPRequestSerializer *)serializer;
 
 @end
