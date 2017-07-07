@@ -43,7 +43,7 @@ static NetworkStatus networkStatus = NetworkStatusReachableViaWAN;
 + (NSURLSessionDataTask *)requestWithMethod:(HTTPMethod)method withParam:(NSDictionary *)param withUrl:(NSString *)url result:(void(^)(id resultObject))result failure:(void(^)(NSError *error))failure {
     return [self __requestWithMethod:method withParam:param withUrl:url result:^(NSURLSessionDataTask *task, id resultObject) {
         result(resultObject); 
-    } failure:^(NSError *error) {
+    } failure:^(NSURLSessionDataTask *task,NSError *error) {
         failure(error);
     }];
 }
@@ -98,7 +98,7 @@ static NetworkStatus networkStatus = NetworkStatusReachableViaWAN;
     return task;
 }
 
-+ (NSURLSessionDataTask *)__requestWithMethod:(HTTPMethod)method withParam:(NSDictionary *)param withUrl:(NSString *)url result:(void(^)(NSURLSessionDataTask *task,id resultObject))result failure:(void(^)(NSError *error))failure {
++ (NSURLSessionDataTask *)__requestWithMethod:(HTTPMethod)method withParam:(NSDictionary *)param withUrl:(NSString *)url result:(void(^)(NSURLSessionDataTask *task,id resultObject))result failure:(void(^)(NSURLSessionDataTask *task, NSError *error))failure {
     
     AFHTTPSessionManager *manager = [self manager];
     NSURLSessionDataTask *task;
@@ -111,7 +111,7 @@ static NetworkStatus networkStatus = NetworkStatusReachableViaWAN;
             result(task, responseObject);
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            failure(error);
+            failure(task,error);
         }];
     } else if (method == HTTPMethodPOST) {
         
@@ -123,7 +123,7 @@ static NetworkStatus networkStatus = NetworkStatusReachableViaWAN;
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             
-            failure(error);
+            failure(task,error);
         }];
     }
     return task;
