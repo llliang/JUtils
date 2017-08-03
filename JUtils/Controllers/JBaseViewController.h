@@ -10,6 +10,4 @@
 
 @interface JBaseViewController : UIViewController
 
-//@property (nonatomic, strong)UIImage *backImage;
-
 @end

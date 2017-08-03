@@ -37,7 +37,6 @@
     shadow.shadowColor = [UIColor clearColor];
     //设置navigationBar的标题的颜色
     self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"000000" alpha:1],NSFontAttributeName:[UIFont systemFontOfSize:16],NSShadowAttributeName:shadow};
-    
 }
 
 - (void)setTitleTextAttributes:(NSDictionary *)titleTextAttributes {
