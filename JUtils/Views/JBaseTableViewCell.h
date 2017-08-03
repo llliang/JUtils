@@ -12,8 +12,8 @@ typedef struct HorizontalEdgeInsets {
     CGFloat left, right;
 }HorizontalEdgeInsets;
 
-UIKIT_STATIC_INLINE HorizontalEdgeInsets  HorizontalEdgeInsetsMake(x,y){
-    HorizontalEdgeInsets insets = {x,y};
+UIKIT_STATIC_INLINE HorizontalEdgeInsets  HorizontalEdgeInsetsMake(x,y) {
+    HorizontalEdgeInsets insets = {x, y};
     return insets;
 }
 

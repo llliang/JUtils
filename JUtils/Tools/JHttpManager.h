@@ -13,7 +13,7 @@
 typedef NS_ENUM(NSUInteger, NetworkStatus) {
     NetworkStatusUnknown          = -1,
     NetworkStatusNotReachable     = 0,
-    NetworkStatusReachableViaWAN  = 1,
+    NetworkStatusReachableViaWWAN  = 1,
     NetworkStatusReachableViaWiFi = 2,
 };
 
@@ -27,6 +27,8 @@ typedef void(^NetworkChangeBlock)(NetworkStatus status);
 @interface JHttpManager : AFHTTPSessionManager
 
 + (void)monitorNetworkStatus:(NetworkChangeBlock)block;
+
++ (void)stopMonitoring;
 
 /**
  获取网络状态

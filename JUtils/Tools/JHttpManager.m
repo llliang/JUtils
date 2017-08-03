@@ -11,7 +11,6 @@
 #import "Macros.h"
 #import "AFNetworking.h"
 
-static NetworkStatus networkStatus = NetworkStatusReachableViaWAN;
 
 @implementation JHttpManager
 
@@ -19,12 +18,16 @@ static NetworkStatus networkStatus = NetworkStatusReachableViaWAN;
     AFNetworkReachabilityManager *afReachabilityManager = [AFNetworkReachabilityManager sharedManager];
     [afReachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         
-        networkStatus = status;
         if (block) {
             block(status);
         }
     }];
     [afReachabilityManager startMonitoring];
+}
+
++ (void)stopMonitoring {
+    AFNetworkReachabilityManager *afReachabilityManager = [AFNetworkReachabilityManager sharedManager];
+    [afReachabilityManager stopMonitoring];
 }
 
 + (JHttpManager *)manager {
@@ -37,7 +40,9 @@ static NetworkStatus networkStatus = NetworkStatusReachableViaWAN;
 }
 
 + (NetworkStatus)getNetworkStatus {
-    return networkStatus;
+    
+    AFNetworkReachabilityManager *afReachabilityManager = [AFNetworkReachabilityManager sharedManager];
+    return afReachabilityManager.networkReachabilityStatus;
 }
 
 + (NSURLSessionDataTask *)requestWithMethod:(HTTPMethod)method withParam:(NSDictionary *)param withUrl:(NSString *)url result:(void(^)(id resultObject))result failure:(void(^)(NSError *error))failure {
