@@ -17,7 +17,6 @@
 /**
  enableGestureRecognizer 手势返回开关 
  */
-
 @property (nonatomic, assign) BOOL enableGestureRecognizer;
 
 @end

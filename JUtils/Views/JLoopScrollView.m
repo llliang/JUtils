@@ -42,7 +42,7 @@
         
         _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.height - 20, [JUtil screenWidth], 20)];
         [self addSubview:_pageControl];
-        _pageControl.autoresizingMask =UIViewAutoresizingFlexibleTopMargin| UIViewAutoresizingFlexibleBottomMargin;
+        _pageControl.autoresizingMask = UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin;
         _pageControl.currentPageIndicatorTintColor = self.currentPageIndicatorTintColor?self.currentPageIndicatorTintColor:[UIColor whiteColor];
         _pageControl.pageIndicatorTintColor = self.pageIndicatorTintColor?self.pageIndicatorTintColor:[UIColor grayColor];
     }
@@ -54,7 +54,7 @@
 }
 
 - (void)setItemViewList:(NSArray *)itemViewList animated:(BOOL)animated {
-    if (itemViewList && itemViewList.count>1) {
+    if (itemViewList && itemViewList.count > 1) {
         _pageControl.hidden = NO;
     } else {
         _pageControl.hidden = YES;
@@ -75,7 +75,7 @@
     _scrollView.contentOffset = CGPointMake(self.width*_itemViewList.count*500, 0);
     [self updateLayout];
     
-    if (_itemViewList.count>1) {
+    if (_itemViewList.count > 1) {
         _scrollView.scrollEnabled = YES;
     } else {
         _scrollView.scrollEnabled = NO;
@@ -104,7 +104,7 @@
 }
 
 - (void)updateLayout {
-    if (_itemViewList.count==0) { 
+    if (_itemViewList.count == 0) {
         return;
     };
     
@@ -136,7 +136,7 @@
 }
 
 - (NSInteger)currentIndex {
-    if (_itemViewList.count==0) { 
+    if (_itemViewList.count == 0) {
         return 0;
     }
     if (((int)_scrollView.contentOffset.x)%((int)self.width) > self.width/2) {
@@ -168,7 +168,7 @@
         [_loopTimer invalidate];
         return;
     }
-    if (_scrollView.isDragging||_scrollView.isDecelerating||_scrollView.isZooming||_scrollView.isZoomBouncing) {
+    if (_scrollView.isDragging || _scrollView.isDecelerating || _scrollView.isZooming || _scrollView.isZoomBouncing) {
         _loopDuration = 0;
         return;
     }
