@@ -1,5 +1,4 @@
 *.xcworkspace
-*.lock
 Pods
 xcuserdata
 .DS_Store

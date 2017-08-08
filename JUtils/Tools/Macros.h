@@ -17,8 +17,6 @@
         #define JLog(...)
     #endif
 
-#define WeakObject(obj) =  ({ __weak __typeof(&*obj)weakObject = obj; \
-                              weakObject; \
-                           })
+#define WeakObject(obj)  __weak __typeof(&*obj) weak##_##obj = obj
 
 #endif /* Macros_h */
