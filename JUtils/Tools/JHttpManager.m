@@ -34,7 +34,7 @@
     static JHttpManager *manager;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        manager = [[JHttpManager alloc] init];
+        manager = [[self alloc] init];
     });
     return manager;
 }
