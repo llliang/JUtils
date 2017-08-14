@@ -34,6 +34,9 @@
 
 - (void)setSeparatorShow:(BOOL)separatorShow{
     _sepLineView.hidden = !separatorShow;
+    if (separatorShow) {
+        [self.contentView bringSubviewToFront:_sepLineView];
+    }
 }
 
 - (void)setSeparatorInsets:(HorizontalEdgeInsets)separatorInsets {
