@@ -65,7 +65,7 @@
             }
         } else {
             for (int i = 0; i < datas.count; i++) {
-                [formData appendPartWithFileData:datas[i] name:[NSString stringWithFormat:@"title_%d",i] fileName:[NSString stringWithFormat:@"header%@.jpg",@(i)] mimeType:@"image/jpeg"];
+                [formData appendPartWithFileData:datas[i] name:titles[0] fileName:[NSString stringWithFormat:@"header%@.jpg",@(i)] mimeType:@"image/jpeg"];
             }
         }
         
