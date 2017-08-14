@@ -53,7 +53,7 @@
     }];
 }
 
-+ (NSURLSessionDataTask *)uploadDatas:(NSArray *)datas withMethod:(HTTPMethod)method withTitles:(NSArray *)titles withParam:(NSDictionary *)param withUrl:(NSString *)url progress:(void(^)(CGFloat progress))progress result:(void(^)(id result))result failure:(void(^)(NSError *error))failure {
++ (NSURLSessionDataTask *)uploadDatas:(NSArray<NSData *> *)datas withMethod:(HTTPMethod)method withTitles:(NSArray *)titles withParam:(NSDictionary *)param withUrl:(NSString *)url progress:(void(^)(CGFloat progress))progress result:(void(^)(id result))result failure:(void(^)(NSError *error))failure {
     
     AFHTTPSessionManager *manager = [self manager];
     
@@ -65,7 +65,7 @@
             }
         } else {
             for (int i = 0; i < datas.count; i++) {
-                [formData appendPartWithFileData:datas[i] name:titles[0] fileName:[NSString stringWithFormat:@"header%@.jpg",@(i)] mimeType:@"image/jpeg"];
+                [formData appendPartWithFileData:datas[i] name:[NSString stringWithFormat:@"title_%d",i] fileName:[NSString stringWithFormat:@"header%@.jpg",@(i)] mimeType:@"image/jpeg"];
             }
         }
         
