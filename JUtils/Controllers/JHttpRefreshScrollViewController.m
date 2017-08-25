@@ -104,7 +104,7 @@
 #pragma mark ---------- 子类需重写的方法
 // 此方法子类可重载
 - (Class)getContainerViewClass {
-    return [UIScrollView class];
+    return [UITableView class];
 }
 
 - (JDataModel *)createDataModel {
