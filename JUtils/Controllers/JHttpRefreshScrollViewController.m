@@ -66,7 +66,10 @@
 }
 
 - (UIView *)createNoDataView {
-    return  [[UIView alloc] initWithFrame:_containerView.bounds];
+    UIView *view = [[UIView alloc] initWithFrame:_containerView.bounds];
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(refreshData)];
+    [view addGestureRecognizer:gestureRecognizer];
+    return  view;
 }
 
 - (void)loadData {
@@ -84,11 +87,7 @@
  
     [_refreshView refreshScrollViewDataSourceDidFinishedLoading:_containerView];
     
-    if (success) {
-        _noDataView.hidden = _dataModel.data && _dataModel.itemCount;
-    }else {
-        _noDataView.hidden = YES;
-    }
+    _noDataView.hidden = success;
     
     if ([_containerView respondsToSelector:@selector(reloadData)]) {
         [_containerView performSelector:@selector(reloadData)];
