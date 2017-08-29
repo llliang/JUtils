@@ -12,4 +12,6 @@
 
 + (JEntity *)entityElement:(id)data;
 
+- (void)print;
+
 @end
