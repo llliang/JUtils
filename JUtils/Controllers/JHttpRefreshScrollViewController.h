@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) __block JDataModel *dataModel;
 @property (nonatomic, strong) UIScrollView *containerView;
+@property (nonatomic, strong) UIView *noDataView;
 
 - (void)loadData;
 

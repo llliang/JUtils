@@ -12,7 +12,6 @@
 
 @interface JHttpRefreshScrollViewController () <JRefreshViewDelegate> {
     JRefreshView *_refreshView;
-    UIView *_noDataView;
 }
 
 @end
