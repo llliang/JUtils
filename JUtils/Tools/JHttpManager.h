@@ -54,7 +54,6 @@ typedef void(^NetworkChangeBlock)(NetworkStatus status);
 /**
  上传二进制接口
  @param datas 二进制数组
- @param method HTTPMethod GET or POST
  @param titles titles
  @param param POST参数
  @param url URI
@@ -62,7 +61,7 @@ typedef void(^NetworkChangeBlock)(NetworkStatus status);
  @param result 完成回调
  @param failure 失败回调
  */ 
-+ (NSURLSessionDataTask *)uploadDatas:(NSArray<NSData *> *)datas withMethod:(HTTPMethod)method withTitles:(NSArray *)titles withParam:(NSDictionary *)param withUrl:(NSString *)url progress:(void(^)(CGFloat progress))progress result:(void(^)(id result))result failure:(void(^)(NSError *error))failure;
++ (NSURLSessionDataTask *)uploadDatas:(NSArray<NSData *> *)datas withTitles:(NSArray *)titles withParam:(NSDictionary *)param withUrl:(NSString *)url progress:(void(^)(CGFloat progress))progress result:(void(^)(id result))result failure:(void(^)(NSError *error))failure;
 
 + (NSURLSessionDownloadTask *)downloadWithParam:(NSDictionary *)param withUrl:(NSString *)url progress:(void(^)(CGFloat progress))progress destination:(NSURL * (^)())destination result:(void(^)(NSURL *filePath))result failure:(void(^)(NSError *error))failure;
 

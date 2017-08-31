@@ -53,7 +53,7 @@
     }];
 }
 
-+ (NSURLSessionDataTask *)uploadDatas:(NSArray<NSData *> *)datas withMethod:(HTTPMethod)method withTitles:(NSArray *)titles withParam:(NSDictionary *)param withUrl:(NSString *)url progress:(void(^)(CGFloat progress))progress result:(void(^)(id result))result failure:(void(^)(NSError *error))failure {
++ (NSURLSessionDataTask *)uploadDatas:(NSArray<NSData *> *)datas withTitles:(NSArray *)titles withParam:(NSDictionary *)param withUrl:(NSString *)url progress:(void(^)(CGFloat progress))progress result:(void(^)(id result))result failure:(void(^)(NSError *error))failure {
     
     AFHTTPSessionManager *manager = [self manager];
     
