@@ -11,6 +11,11 @@
 #import "UIView+frame.h"
 #import "UIColor+hex.h"
 
+HorizontalEdgeInsets HorizontalEdgeInsetsMake(CGFloat x,CGFloat y) {
+    HorizontalEdgeInsets insets = {x, y};
+    return insets;
+}
+
 @interface JBaseTableViewCell () {
     JOnePixLineView *_sepLineView;
 }

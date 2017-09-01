@@ -12,10 +12,7 @@ typedef struct HorizontalEdgeInsets {
     CGFloat left, right;
 }HorizontalEdgeInsets;
 
-static inline HorizontalEdgeInsets  HorizontalEdgeInsetsMake(x,y) {
-    HorizontalEdgeInsets insets = {x, y};
-    return insets;
-}
+HorizontalEdgeInsets HorizontalEdgeInsetsMake(CGFloat x,CGFloat y);
 
 @interface JBaseTableViewCell : UITableViewCell
 
