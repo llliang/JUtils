@@ -53,6 +53,7 @@ FOUNDATION_EXPORT const unsigned char JUtilsVersionString[];
 #import "JLoopScrollView.h"
 #import "JPlaceholderTextView.h"
 #import "JAutoResizeTextView.h"
+#import "UIAlertController+block.h"
 
 #import "JBaseViewController.h"
 #import "JHttpRefreshLoadMoreScrollViewController.h"
