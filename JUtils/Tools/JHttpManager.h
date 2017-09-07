@@ -54,7 +54,7 @@ typedef void(^NetworkChangeBlock)(NetworkStatus status);
 /**
  上传二进制接口
  @param datas 二进制数组
- @param titles titles
+ @param names names
  @param param POST参数
  @param url URI
  @param progress 上传进度
