@@ -53,19 +53,19 @@
     }];
 }
 
-+ (NSURLSessionDataTask *)uploadDatas:(NSArray<NSData *> *)datas withTitles:(NSArray *)titles withParam:(NSDictionary *)param withUrl:(NSString *)url progress:(void(^)(CGFloat progress))progress result:(void(^)(id result))result failure:(void(^)(NSError *error))failure {
++ (NSURLSessionDataTask *)uploadDatas:(NSArray<NSData *> *)datas withNames:(NSArray *)names fileNames:(NSArray *)fileNames mimeTypes:(NSArray *)mimeTypes withParam:(NSDictionary *)param withUrl:(NSString *)url progress:(void(^)(CGFloat progress))progress result:(void(^)(id result))result failure:(void(^)(NSError *error))failure {
     
     AFHTTPSessionManager *manager = [self manager];
     
     NSURLSessionDataTask *task = [manager POST:url parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
-        if (datas.count == titles.count) {
+        if (datas.count == names.count) {
             for (int i = 0; i < datas.count; i++) {
-                [formData appendPartWithFileData:datas[i] name:titles[i] fileName:[NSString stringWithFormat:@"header%@.jpg",@(i)] mimeType:@"image/jpeg"];
+                [formData appendPartWithFileData:datas[i] name:names[i] fileName:fileNames[i] mimeType:mimeTypes[i]];
             }
         } else {
             for (int i = 0; i < datas.count; i++) {
-                [formData appendPartWithFileData:datas[i] name:titles[0] fileName:[NSString stringWithFormat:@"header%@.jpg",@(i)] mimeType:@"image/jpeg"];
+                [formData appendPartWithFileData:datas[i] name:names[0] fileName:fileNames[0] mimeType:mimeTypes[0]];
             }
         }
         
