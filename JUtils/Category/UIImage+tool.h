@@ -29,6 +29,6 @@
  @pragma size 尺寸
  @pragma fileSize eg:100*1024 // 100k 最低参考值
  */
-+ (void)compressImages:(NSArray<UIImage *> *)images toSize:(CGSize)size referenceFileSize:(double)fileSize result:(void(^)(NSArray<NSData *> *resultImage))result;
++ (void)compressImages:(NSArray<UIImage *> *)images toSize:(CGSize)size referenceFileSize:(double)fileSize result:(void(^)(NSArray<NSData *> *imageDatas))result;
 
 @end

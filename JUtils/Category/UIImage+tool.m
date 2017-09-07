@@ -64,12 +64,12 @@
     });
 }
 
-+ (void)compressImages:(NSArray<UIImage *> *)images toSize:(CGSize)size referenceFileSize:(double)fileSize result:(void(^)(NSArray<NSData *> *resultImage))result {
++ (void)compressImages:(NSArray<UIImage *> *)images toSize:(CGSize)size referenceFileSize:(double)fileSize result:(void(^)(NSArray<NSData *> *imageDatas))result {
     
     __block CGFloat compression = 1.f;
     CGFloat minCompression = 0.1;
     
-    __block NSMutableArray *resultImages = [NSMutableArray array];
+    __block NSMutableArray *resultImagesDatas = [NSMutableArray array];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         for (UIImage *image in images) {
@@ -81,10 +81,10 @@
                 compression -= 0.1;
                 imageData = UIImageJPEGRepresentation(tempImage, compression);
             }
-            [resultImages addObject:imageData];
+            [resultImagesDatas addObject:imageData];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
-            result(resultImages);
+            result(resultImagesDatas);
         });
     });
 }
