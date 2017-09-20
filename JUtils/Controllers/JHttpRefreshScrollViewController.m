@@ -28,6 +28,12 @@
     _containerView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     _containerView.backgroundColor = [UIColor clearColor];
     
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_11_0
+    if (@available(iOS 11.0, *)) {
+        _containerView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+#endif
+    
     if (![_containerView isKindOfClass:[UIScrollView class]]) {
         NSAssert(NO, @"容器类不是UIScrollView子类");
     }
