@@ -166,7 +166,7 @@ static const CGFloat kImageHeight = 50.0f;
 
 - (void)showImage:(UIImage *)image content:(NSString *)content activity:(BOOL)activity withTime:(CGFloat)time needLock:(BOOL)lock inView:(UIView *)view {
     
-    NSAssert(time>=0, @"时间不能小于0");
+    NSAssert(time >= 0, @"时间不能小于0");
     
     [JHud cancelPreviousPerformRequestsWithTarget:self selector:@selector(dismiss) object:nil];
     
@@ -188,7 +188,6 @@ static const CGFloat kImageHeight = 50.0f;
     self.hudView.center = _containerView.center;
     
     [self hudShow];
-    
     if (!lock) {
         [self performSelector:@selector(hudHide) withObject:self afterDelay:time];
     }
@@ -252,6 +251,7 @@ static const CGFloat kImageHeight = 50.0f;
         _hudContentLabel.text = content;
         contentSize = [content sizeWithFont:_font constrainedToSize:CGSizeMake(kDefaultHudWidth - 30, MAXFLOAT)];
     }
+    self.width = kDefaultHudWidth;
     if (image) {
         _hudImageView.hidden = NO;
         _hudIndicatorView.hidden = YES;
@@ -263,8 +263,13 @@ static const CGFloat kImageHeight = 50.0f;
         _hudIndicatorView.hidden = NO;
         [_hudIndicatorView startAnimating];
         _hudImageView.hidden = YES;
-        _hudIndicatorView.center = CGPointMake(kDefaultHudWidth/2, 15+_hudIndicatorView.height/2);
+        
+        // 调整下宽度
+        self.width = 30 + _hudIndicatorView.height;
+        
+        _hudIndicatorView.center = CGPointMake(self.width/2, 15+_hudIndicatorView.height/2);
         _hudContentLabel.top = _hudIndicatorView.bottom + 15;
+        
     } else {
         _hudImageView.hidden = _hudIndicatorView.hidden = YES;
         _hudContentLabel.top = 15;
@@ -274,7 +279,6 @@ static const CGFloat kImageHeight = 50.0f;
     _hudContentLabel.left = 15;
     
     self.height = _hudContentLabel.bottom + 15;
-    _hudIndicatorView.center = CGPointMake(self.width/2, self.height/2);
 }
 
 @end
