@@ -265,11 +265,13 @@ static const CGFloat kImageHeight = 50.0f;
         _hudImageView.hidden = YES;
         
         // 调整下宽度
-        self.width = 30 + _hudIndicatorView.height;
-        
-        _hudIndicatorView.center = CGPointMake(self.width/2, 15+_hudIndicatorView.height/2);
+        if (content == nil || content.length == 0) {
+            self.width = 60 + _hudIndicatorView.height;
+            _hudIndicatorView.center = CGPointMake(self.width/2, 30+_hudIndicatorView.height/2);
+        } else {
+            _hudIndicatorView.center = CGPointMake(self.width/2, 15+_hudIndicatorView.height/2);   
+        }
         _hudContentLabel.top = _hudIndicatorView.bottom + 15;
-        
     } else {
         _hudImageView.hidden = _hudIndicatorView.hidden = YES;
         _hudContentLabel.top = 15;
