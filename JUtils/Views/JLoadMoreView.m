@@ -99,6 +99,10 @@
             self.state = JLoadMoreViewStateLoading;
         }
     }
+    BOOL loading = [_delegate loadMoreViewIsLoading:self]; 
+    if (!loading && self.state == JLoadMoreViewStateLoading && !scrollView.isDragging) {
+        [_delegate loadMoreViewDidStartLoad:self];
+    }
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView {
@@ -119,3 +123,4 @@
 }
 
 @end
+

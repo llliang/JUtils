@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     _loadMoreView = [self createLoadMoreView];
-
+    
     [super viewDidLoad];
 }
 
@@ -62,7 +62,9 @@
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     [super scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
     
-    [_loadMoreView scrollViewDidEndDragging:scrollView];
+    if (!self.dataModel.loading && self.dataModel.canLoadMore) {
+        [_loadMoreView scrollViewDidEndDragging:scrollView];
+    }
 }
 
 #pragma mark --------- load more cell delegate
@@ -78,3 +80,4 @@
 }
 
 @end
+
