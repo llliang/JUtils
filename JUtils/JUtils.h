@@ -56,8 +56,8 @@ FOUNDATION_EXPORT const unsigned char JUtilsVersionString[];
 #import "UIAlertController+block.h"
 
 #import "JBaseViewController.h"
-#import "JHttpRefreshLoadMoreScrollViewController.h"
-#import "JHttpRefreshScrollViewController.h"
+#import "JPullRefreshLoadMoreTableViewController.h"
+#import "JPullRefreshTableViewController.h"
 #import "JNavigationController.h"
 #import "Macros.h"
 #import "JPhotosPickerController.h"
