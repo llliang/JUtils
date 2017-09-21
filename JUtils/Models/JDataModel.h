@@ -23,7 +23,7 @@
 @property (nonatomic) NSInteger pageNum;
 
 
-- (void)loadStart:(void(^)())startBlock finished:(void(^)(JDataModel *model))finishedBlock failure:(void(^)(NSError *error))failureBlock;
+- (void)loadStart:(void(^)(void))startBlock finished:(void(^)(JDataModel *model))finishedBlock failure:(void(^)(NSError *error))failureBlock;
 
 // 加载缓存
 - (void)loadCache;

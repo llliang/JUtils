@@ -6,10 +6,10 @@
 //  Copyright © 2017年 Gogenius. All rights reserved.
 //
 
-#import "JHttpRefreshScrollViewController.h"
+#import "JPullRefreshTableViewController.h"
 #import "JLoadMoreView.h"
 
-@interface JHttpRefreshLoadMoreScrollViewController : JHttpRefreshScrollViewController
+@interface JPullRefreshLoadMoreTableViewController : JPullRefreshTableViewController
 
 @property (nonatomic, strong) JLoadMoreView *loadMoreView;
 

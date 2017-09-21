@@ -6,21 +6,20 @@
 //  Copyright © 2017年 Gogenius. All rights reserved.
 //
 
-#import "JHttpRefreshLoadMoreScrollViewController.h"
+#import "JPullRefreshLoadMoreTableViewController.h"
 #import "UIView+frame.h"
 
-@interface JHttpRefreshLoadMoreScrollViewController () <JLoadMoreViewDelegate> {
+@interface JPullRefreshLoadMoreTableViewController () <JLoadMoreViewDelegate> {
     
 }
 
 @end
 
-@implementation JHttpRefreshLoadMoreScrollViewController
+@implementation JPullRefreshLoadMoreTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     _loadMoreView = [self createLoadMoreView];
-    [self.containerView addSubview:_loadMoreView];
     _loadMoreView.hidden = YES;
 }
 
@@ -35,15 +34,18 @@
     
     if (success) {
         [_loadMoreView setState:JLoadMoreViewStateNormal];
-        _loadMoreView.hidden = !(self.containerView.contentSize.height > self.containerView.height) || !self.dataModel.canLoadMore;
-        _loadMoreView.top = self.containerView.contentSize.height;
+        if (self.dataModel.canLoadMore && self.tableView.contentSize.height >= self.tableView.height + _loadMoreView.height) {
+            self.tableView.tableFooterView = _loadMoreView;
+        } else {
+            self.tableView.tableFooterView = nil;
+        }
     } else {
         [_loadMoreView setState:JLoadMoreViewStateFailed];
-    }
-    
-    if (self.dataModel.canLoadMore) {
-        self.containerView.contentSize = CGSizeMake(self.containerView.width, self.containerView.contentSize.height + _loadMoreView.height);
-        _loadMoreView.top = self.containerView.contentSize.height;
+        if (self.dataModel.itemCount >= self.dataModel.fetchLimited) {
+            self.tableView.tableFooterView = _loadMoreView;
+        } else {
+            self.tableView.tableFooterView = nil;
+        }
     }
 }
 

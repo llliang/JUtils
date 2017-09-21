@@ -92,7 +92,7 @@
     return [JHttpManager class];
 }
 
-- (void)loadStart:(void (^)())startBlock finished:(void (^)(JDataModel *))finishedBlock failure:(void (^)(NSError *))failureBlock{
+- (void)loadStart:(void (^)(void))startBlock finished:(void (^)(JDataModel *))finishedBlock failure:(void (^)(NSError *))failureBlock{
     
     if (!self.loading) {
         

@@ -63,7 +63,7 @@ typedef void(^NetworkChangeBlock)(NetworkStatus status);
  */ 
 + (NSURLSessionDataTask *)uploadDatas:(NSArray<NSData *> *)datas withNames:(NSArray *)names fileNames:(NSArray *)fileNames mimeTypes:(NSArray *)mimeTypes withParam:(NSDictionary *)param withUrl:(NSString *)url progress:(void(^)(CGFloat progress))progress result:(void(^)(id result))result failure:(void(^)(NSError *error))failure;
 
-+ (NSURLSessionDownloadTask *)downloadWithParam:(NSDictionary *)param withUrl:(NSString *)url progress:(void(^)(CGFloat progress))progress destination:(NSURL * (^)())destination result:(void(^)(NSURL *filePath))result failure:(void(^)(NSError *error))failure;
++ (NSURLSessionDownloadTask *)downloadWithParam:(NSDictionary *)param withUrl:(NSString *)url progress:(void(^)(CGFloat progress))progress destination:(NSURL * (^)(void))destination result:(void(^)(NSURL *filePath))result failure:(void(^)(NSError *error))failure;
 
 
 @end

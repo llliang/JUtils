@@ -49,10 +49,10 @@
 		37E74C831E9F7E4B00FF705C /* JEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C581E9F7E4A00FF705C /* JEntity.m */; };
 		37E74C841E9F7E4B00FF705C /* JBaseViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C5A1E9F7E4A00FF705C /* JBaseViewController.h */; };
 		37E74C851E9F7E4B00FF705C /* JBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C5B1E9F7E4A00FF705C /* JBaseViewController.m */; };
-		37E74C861E9F7E4B00FF705C /* JHttpRefreshLoadMoreScrollViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C5C1E9F7E4A00FF705C /* JHttpRefreshLoadMoreScrollViewController.h */; };
-		37E74C871E9F7E4B00FF705C /* JHttpRefreshLoadMoreScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C5D1E9F7E4A00FF705C /* JHttpRefreshLoadMoreScrollViewController.m */; };
-		37E74C881E9F7E4B00FF705C /* JHttpRefreshScrollViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C5E1E9F7E4A00FF705C /* JHttpRefreshScrollViewController.h */; };
-		37E74C891E9F7E4B00FF705C /* JHttpRefreshScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C5F1E9F7E4A00FF705C /* JHttpRefreshScrollViewController.m */; };
+		37E74C861E9F7E4B00FF705C /* JPullRefreshLoadMoreTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C5C1E9F7E4A00FF705C /* JPullRefreshLoadMoreTableViewController.h */; };
+		37E74C871E9F7E4B00FF705C /* JPullRefreshLoadMoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C5D1E9F7E4A00FF705C /* JPullRefreshLoadMoreTableViewController.m */; };
+		37E74C881E9F7E4B00FF705C /* JPullRefreshTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C5E1E9F7E4A00FF705C /* JPullRefreshTableViewController.h */; };
+		37E74C891E9F7E4B00FF705C /* JPullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C5F1E9F7E4A00FF705C /* JPullRefreshTableViewController.m */; };
 		37E74C8A1E9F7E4B00FF705C /* JNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C601E9F7E4A00FF705C /* JNavigationController.h */; };
 		37E74C8B1E9F7E4B00FF705C /* JNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E74C611E9F7E4A00FF705C /* JNavigationController.m */; };
 		37E74C8C1E9F7E4B00FF705C /* Category.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E74C631E9F7E4A00FF705C /* Category.h */; };
@@ -120,10 +120,10 @@
 		37E74C581E9F7E4A00FF705C /* JEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JEntity.m; sourceTree = "<group>"; };
 		37E74C5A1E9F7E4A00FF705C /* JBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBaseViewController.h; sourceTree = "<group>"; };
 		37E74C5B1E9F7E4A00FF705C /* JBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBaseViewController.m; sourceTree = "<group>"; };
-		37E74C5C1E9F7E4A00FF705C /* JHttpRefreshLoadMoreScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHttpRefreshLoadMoreScrollViewController.h; sourceTree = "<group>"; };
-		37E74C5D1E9F7E4A00FF705C /* JHttpRefreshLoadMoreScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHttpRefreshLoadMoreScrollViewController.m; sourceTree = "<group>"; };
-		37E74C5E1E9F7E4A00FF705C /* JHttpRefreshScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHttpRefreshScrollViewController.h; sourceTree = "<group>"; };
-		37E74C5F1E9F7E4A00FF705C /* JHttpRefreshScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHttpRefreshScrollViewController.m; sourceTree = "<group>"; };
+		37E74C5C1E9F7E4A00FF705C /* JPullRefreshLoadMoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPullRefreshLoadMoreTableViewController.h; sourceTree = "<group>"; };
+		37E74C5D1E9F7E4A00FF705C /* JPullRefreshLoadMoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPullRefreshLoadMoreTableViewController.m; sourceTree = "<group>"; };
+		37E74C5E1E9F7E4A00FF705C /* JPullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPullRefreshTableViewController.h; sourceTree = "<group>"; };
+		37E74C5F1E9F7E4A00FF705C /* JPullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPullRefreshTableViewController.m; sourceTree = "<group>"; };
 		37E74C601E9F7E4A00FF705C /* JNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNavigationController.h; sourceTree = "<group>"; };
 		37E74C611E9F7E4A00FF705C /* JNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNavigationController.m; sourceTree = "<group>"; };
 		37E74C631E9F7E4A00FF705C /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
@@ -246,10 +246,10 @@
 			children = (
 				37E74C5A1E9F7E4A00FF705C /* JBaseViewController.h */,
 				37E74C5B1E9F7E4A00FF705C /* JBaseViewController.m */,
-				37E74C5C1E9F7E4A00FF705C /* JHttpRefreshLoadMoreScrollViewController.h */,
-				37E74C5D1E9F7E4A00FF705C /* JHttpRefreshLoadMoreScrollViewController.m */,
-				37E74C5E1E9F7E4A00FF705C /* JHttpRefreshScrollViewController.h */,
-				37E74C5F1E9F7E4A00FF705C /* JHttpRefreshScrollViewController.m */,
+				37E74C5C1E9F7E4A00FF705C /* JPullRefreshLoadMoreTableViewController.h */,
+				37E74C5D1E9F7E4A00FF705C /* JPullRefreshLoadMoreTableViewController.m */,
+				37E74C5E1E9F7E4A00FF705C /* JPullRefreshTableViewController.h */,
+				37E74C5F1E9F7E4A00FF705C /* JPullRefreshTableViewController.m */,
 				37E74C601E9F7E4A00FF705C /* JNavigationController.h */,
 				37E74C611E9F7E4A00FF705C /* JNavigationController.m */,
 				377E82E31ECAEE2600A571F7 /* JPhotosPickerController.h */,
@@ -326,13 +326,13 @@
 				375E78311EC154D300B5F62C /* Macros.h in Headers */,
 				37E74C7A1E9F7E4B00FF705C /* JHttpManager.h in Headers */,
 				37E74C911E9F7E4B00FF705C /* UIColor+hex.h in Headers */,
-				37E74C881E9F7E4B00FF705C /* JHttpRefreshScrollViewController.h in Headers */,
+				37E74C881E9F7E4B00FF705C /* JPullRefreshTableViewController.h in Headers */,
 				37E74C8D1E9F7E4B00FF705C /* NSString+function.h in Headers */,
 				37844A391EA783FF00ED0763 /* UIBarButtonItem+custom.h in Headers */,
 				37E74C781E9F7E4B00FF705C /* JCacheManager.h in Headers */,
 				37D334281EF385F1002AE2EC /* JPlaceholderTextView.h in Headers */,
 				37E74C821E9F7E4B00FF705C /* JEntity.h in Headers */,
-				37E74C861E9F7E4B00FF705C /* JHttpRefreshLoadMoreScrollViewController.h in Headers */,
+				37E74C861E9F7E4B00FF705C /* JPullRefreshLoadMoreTableViewController.h in Headers */,
 				37DA426E1EEA33D400EA2E26 /* NSDictionary+safety.h in Headers */,
 				37E74C8F1E9F7E4B00FF705C /* NSString+size.h in Headers */,
 				3718C8411EEFE8D4006DDAF4 /* JLoopScrollView.h in Headers */,
@@ -456,7 +456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37EB11BF1ECBE60A00F2CE52 /* JExceptionsManager.m in Sources */,
-				37E74C891E9F7E4B00FF705C /* JHttpRefreshScrollViewController.m in Sources */,
+				37E74C891E9F7E4B00FF705C /* JPullRefreshTableViewController.m in Sources */,
 				37E74C8E1E9F7E4B00FF705C /* NSString+function.m in Sources */,
 				37D3342D1EF38636002AE2EC /* JAutoResizeTextView.m in Sources */,
 				37E74C811E9F7E4B00FF705C /* JDataModel.m in Sources */,
@@ -480,7 +480,7 @@
 				37E573841EAD918800ED2D42 /* UIApplication+version.m in Sources */,
 				37E74C7B1E9F7E4B00FF705C /* JHttpManager.m in Sources */,
 				37E74C751E9F7E4B00FF705C /* JOnePixLineView.m in Sources */,
-				37E74C871E9F7E4B00FF705C /* JHttpRefreshLoadMoreScrollViewController.m in Sources */,
+				37E74C871E9F7E4B00FF705C /* JPullRefreshLoadMoreTableViewController.m in Sources */,
 				377E82E41ECAEE2600A571F7 /* JPhotosPickerController.m in Sources */,
 				3718C8421EEFE8D4006DDAF4 /* JLoopScrollView.m in Sources */,
 				37E74C921E9F7E4B00FF705C /* UIColor+hex.m in Sources */,

@@ -9,10 +9,10 @@
 #import "JBaseViewController.h"
 #import "JDataModel.h"
 
-@interface JHttpRefreshScrollViewController : JBaseViewController <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
+@interface JPullRefreshTableViewController : JBaseViewController <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) __block JDataModel *dataModel;
-@property (nonatomic, strong) UIScrollView *containerView;
+@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIView *noDataView;
 
 - (void)loadData;

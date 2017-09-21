@@ -6,72 +6,64 @@
 //  Copyright © 2017年 Gogenius. All rights reserved.
 //
 
-#import "JHttpRefreshScrollViewController.h"
+#import "JPullRefreshTableViewController.h"
 #import "JRefreshView.h"
 #import "UIView+frame.h"
 
-@interface JHttpRefreshScrollViewController () <JRefreshViewDelegate> {
+@interface JPullRefreshTableViewController () <JRefreshViewDelegate> {
     JRefreshView *_refreshView;
 }
 
 @end
 
-@implementation JHttpRefreshScrollViewController
+@implementation JPullRefreshTableViewController
 
 - (void)dealloc {
-    [_containerView removeObserver:self forKeyPath:@"tableHeaderView"];
+    [_tableView removeObserver:self forKeyPath:@"tableHeaderView"];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _containerView = [[[self getContainerViewClass] alloc] initWithFrame:self.view.bounds];
-    _containerView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-    _containerView.backgroundColor = [UIColor clearColor];
-    
+
+    _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:_tableView];
+
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_11_0
     if (@available(iOS 11.0, *)) {
-        _containerView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
 #endif
     
-    if (![_containerView isKindOfClass:[UIScrollView class]]) {
-        NSAssert(NO, @"容器类不是UIScrollView子类");
-    }
-    _containerView.delegate = self;
-    [self.view addSubview:_containerView];
-    
-    if ([_containerView isKindOfClass:[UITableView class]]) {
-        [(UITableView *)_containerView setDataSource:self];
-        [(UITableView *)_containerView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    }
-    
-    if ([_containerView isKindOfClass:[UICollectionView class]]) {
-        [(UICollectionView *)_containerView setDataSource:self];
-    }
-    
-    _refreshView = [[JRefreshView alloc] initWithFrame:CGRectMake(0, -60, _containerView.width, 60)];
+    _refreshView = [[JRefreshView alloc] initWithFrame:CGRectMake(0, -60, _tableView.width, 60)];
     _refreshView.delegate = self;
-    [_containerView addSubview:_refreshView];
+    [_tableView addSubview:_refreshView];
     
     _noDataView = [self createNoDataView];
+    _noDataView.layer.masksToBounds = YES;
     _noDataView.autoresizingMask =  UIViewAutoresizingFlexibleHeight;
-    [_containerView addSubview:_noDataView];
+    [_tableView addSubview:_noDataView];
     
     _noDataView.hidden = YES;
     
     _dataModel = [self createDataModel];
     if (_dataModel.data && [_dataModel.data count]) {
-        if ([_containerView respondsToSelector:@selector(reloadData)]) {
-            [_containerView performSelector:@selector(reloadData)];
+        if ([_tableView respondsToSelector:@selector(reloadData)]) {
+            [_tableView performSelector:@selector(reloadData)];
         }
     }
     
     [self performSelector:@selector(loadData) withObject:nil afterDelay:0.01];
-    [_containerView addObserver:self forKeyPath:@"tableHeaderView" options:NSKeyValueObservingOptionNew context:nil];
+    // 监控tableview 的headerView 更改noDataView的位置
+    [_tableView addObserver:self forKeyPath:@"tableHeaderView" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (UIView *)createNoDataView {
-    UIView *view = [[UIView alloc] initWithFrame:_containerView.bounds];
+    UIView *view = [[UIView alloc] initWithFrame:_tableView.bounds];
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(refreshData)];
     [view addGestureRecognizer:gestureRecognizer];
     return  view;
@@ -90,12 +82,16 @@
 // 加载完成
 - (void)loadSuccess:(BOOL)success {
  
-    [_refreshView refreshScrollViewDataSourceDidFinishedLoading:_containerView];
+    [_refreshView refreshScrollViewDataSourceDidFinishedLoading:_tableView];
     
-    _noDataView.hidden = success;
+    if (success && [self.dataModel.data isKindOfClass:[NSArray class]] && [self.dataModel itemCount] == 0) {
+        _noDataView.hidden = NO;
+    } else {
+        _noDataView.hidden = YES;
+    } 
     
-    if ([_containerView respondsToSelector:@selector(reloadData)]) {
-        [_containerView performSelector:@selector(reloadData)];
+    if ([_tableView respondsToSelector:@selector(reloadData)]) {
+        [_tableView performSelector:@selector(reloadData)];
     }
 }
 
@@ -104,12 +100,7 @@
     [self loadData];
 }
 
-
 #pragma mark ---------- 子类需重写的方法
-// 此方法子类可重载
-- (Class)getContainerViewClass {
-    return [UITableView class];
-}
 
 - (JDataModel *)createDataModel {
     JDataModel *dataModel = [[JDataModel alloc] init]; 
@@ -134,14 +125,6 @@
     return [[UITableViewCell alloc] init];
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 0;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return [[UICollectionViewCell alloc] init];
-}
-
 #pragma mark -------- refreshView  delegate
 
 - (void)pullRefreshTableHeaderDidTriggerRefresh:(JRefreshView *)view {
@@ -155,9 +138,9 @@
 - (void)observeValueForKeyPath:(nullable NSString *)keyPath ofObject:(nullable id)object change:(nullable NSDictionary<NSKeyValueChangeKey, id> *)change context:(nullable void *)context {
     if ([object isKindOfClass:[UITableView class]]) {
         
-        UIView *headerView = [(UITableView *)_containerView tableHeaderView];
+        UIView *headerView = [(UITableView *)_tableView tableHeaderView];
         _noDataView.top = headerView.height;
-        _noDataView.height = _containerView.height - headerView.height;
+        _noDataView.height = _tableView.height - headerView.height;
     }
 }
 
