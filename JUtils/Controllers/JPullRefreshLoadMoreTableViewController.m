@@ -18,9 +18,9 @@
 @implementation JPullRefreshLoadMoreTableViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
     _loadMoreView = [self createLoadMoreView];
-    _loadMoreView.hidden = YES;
+
+    [super viewDidLoad];
 }
 
 - (JLoadMoreView *)createLoadMoreView {
