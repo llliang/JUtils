@@ -52,9 +52,7 @@
     
     _dataModel = [self createDataModel];
     if (_dataModel.data && [_dataModel.data count]) {
-        if ([_tableView respondsToSelector:@selector(reloadData)]) {
-            [_tableView performSelector:@selector(reloadData)];
-        }
+        [_tableView reloadData];
     }
     
     [self performSelector:@selector(loadData) withObject:nil afterDelay:0.01];
@@ -82,6 +80,7 @@
 // 加载完成
 - (void)loadSuccess:(BOOL)success {
  
+    [_tableView reloadData];    
     [_refreshView refreshScrollViewDataSourceDidFinishedLoading:_tableView];
     
     if (success && [self.dataModel.data isKindOfClass:[NSArray class]] && [self.dataModel itemCount] == 0) {
@@ -89,10 +88,6 @@
     } else {
         _noDataView.hidden = YES;
     } 
-    
-    if ([_tableView respondsToSelector:@selector(reloadData)]) {
-        [_tableView performSelector:@selector(reloadData)];
-    }
 }
 
 - (void)refreshData {

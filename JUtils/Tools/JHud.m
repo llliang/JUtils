@@ -20,11 +20,7 @@ static const CGFloat kImageHeight = 50.0f;
     UIView *_containerView;
     UIWindow *_window;
     UIControl *_overlayView;
-    JHudView *_hudView;
-
-    NSTimer *_timer;    
-//    BOOL _show; // 是否已经显示
-//    BOOL _animating;// 当前hud 是否显示
+    JHudView *_hudView;  
 }
 
 @end
@@ -67,19 +63,6 @@ static const CGFloat kImageHeight = 50.0f;
 }
 
 - (void)hudShow {
-//    if (!_show && !_animating) {
-//        _animating = YES;
-//        self.hudView.alpha = 0;
-//        NSUInteger options = UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveEaseOut;
-//        
-//        [UIView animateWithDuration:0.15 delay:0 options:options animations:^{
-//            _hudView.alpha = 1;
-//            _overlayView.alpha = 1;
-//        }completion:^(BOOL finished){
-//            _animating = NO;
-//            _show = YES;
-//        }];
-//    }
     self.hudView.alpha = 0;
     NSUInteger options = UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveEaseOut;
     
@@ -91,25 +74,7 @@ static const CGFloat kImageHeight = 50.0f;
 }
 
 - (void)hudHide {
-//    if (_show && !_animating) {
-//        [JHud cancelPreviousPerformRequestsWithTarget:self selector:@selector(dismiss) object:nil];
-//        
-//        _animating = YES;
-//        _show = NO;
-//        NSUInteger options = UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveEaseIn;
-//        
-//        [UIView animateWithDuration:0.15 delay:0 options:options animations:^{
-////            self.hudView.transform = CGAffineTransformScale(_hudView.transform, 0.7, 0.7);
-//            _hudView.alpha = 0;
-//            _overlayView.alpha = 0;
-//        } completion:^(BOOL finished) {
-//             _hudView = nil;
-//             _show = NO;
-//             _animating = NO;
-//         }];
-//    }
     [JHud cancelPreviousPerformRequestsWithTarget:self selector:@selector(dismiss) object:nil];
-//    _show = NO;
     NSUInteger options = UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveEaseIn;
     
     [UIView animateWithDuration:0.15 delay:0 options:options animations:^{
@@ -117,7 +82,6 @@ static const CGFloat kImageHeight = 50.0f;
         _overlayView.alpha = 0;
     } completion:^(BOOL finished) {
         _hudView = nil;
-//        _show = NO;
     }];
 }
 
