@@ -40,52 +40,6 @@ static const CGFloat kImageHeight = 50.0f;
     return self;
 }
 
-- (UIControl *)overlayView {
-    CGRect frame = [UIScreen mainScreen].bounds;
-    if (!_overlayView) {
-        _overlayView = [[UIControl alloc] init];
-        _overlayView.backgroundColor = [UIColor colorWithHexString:@"#000000" alpha:0.4];
-        _overlayView.alpha = 0;
-    }
-    _overlayView.frame = frame;
-    return _overlayView;
-}
-
-- (JHudView *)hudView {
-    if (!_hudView) {
-        _hudView = [[JHudView alloc] init];
-    }
-    return _hudView;
-}
-
-- (void)dismiss {
-    [self hudHide];
-}
-
-- (void)hudShow {
-    self.hudView.alpha = 0;
-    NSUInteger options = UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveEaseOut;
-    
-    [UIView animateWithDuration:0.15 delay:0 options:options animations:^{
-        _hudView.alpha = 1;
-        _overlayView.alpha = 1;
-    }completion:^(BOOL finished){
-    }];
-}
-
-- (void)hudHide {
-    [JHud cancelPreviousPerformRequestsWithTarget:self selector:@selector(dismiss) object:nil];
-    NSUInteger options = UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveEaseIn;
-    
-    [UIView animateWithDuration:0.15 delay:0 options:options animations:^{
-        _hudView.alpha = 0;
-        _overlayView.alpha = 0;
-    } completion:^(BOOL finished) {
-        _hudView = nil;
-    }];
-}
-
-
 #pragma mark ---- Class method
 
 + (JHud *)instance {
@@ -145,9 +99,8 @@ static const CGFloat kImageHeight = 50.0f;
 
 - (void)showImage:(UIImage *)image content:(NSString *)content activity:(BOOL)activity withTime:(CGFloat)time needLock:(BOOL)lock inView:(UIView *)view {
     
-    NSAssert(time >= 0, @"时间不能小于0");
-    
-    [JHud cancelPreviousPerformRequestsWithTarget:self selector:@selector(dismiss) object:nil];
+    NSAssert(time >= 0, @"时间不能小于0");    
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
     
     if (view) {
         _containerView = view;
@@ -155,11 +108,12 @@ static const CGFloat kImageHeight = 50.0f;
         _containerView = _window;
     }
     if (lock) {
-        [_containerView addSubview:[self overlayView]];
+        if (![_containerView.subviews containsObject:self.overlayView]) {
+            [_containerView addSubview:self.overlayView];
+        }
     } else {
         [_overlayView removeFromSuperview];
     }
-    
     if (![_containerView.subviews containsObject:self.hudView]) {
         [_containerView addSubview:self.hudView];
     }
@@ -168,8 +122,53 @@ static const CGFloat kImageHeight = 50.0f;
     
     [self hudShow];
     if (!lock) {
-        [self performSelector:@selector(hudHide) withObject:self afterDelay:time];
+        [self performSelector:@selector(hudHide) withObject:nil afterDelay:time];
     }
+}
+
+- (UIControl *)overlayView {
+    CGRect frame = [UIScreen mainScreen].bounds;
+    if (!_overlayView) {
+        _overlayView = [[UIControl alloc] init];
+        _overlayView.backgroundColor = [UIColor colorWithHexString:@"#000000" alpha:0.4];
+        _overlayView.alpha = 0;
+    }
+    _overlayView.frame = frame;
+    return _overlayView;
+}
+
+- (JHudView *)hudView {
+    if (!_hudView) {
+        _hudView = [[JHudView alloc] init];
+    }
+    return _hudView;
+}
+
+- (void)dismiss {
+    [self hudHide];
+}
+
+- (void)hudShow {
+    self.hudView.alpha = 0;
+    NSUInteger options = UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveEaseOut;
+    
+    [UIView animateWithDuration:0.15 delay:0 options:options animations:^{
+        _hudView.alpha = 1;
+        _overlayView.alpha = 1;
+    }completion:^(BOOL finished){
+        
+    }];
+}
+
+- (void)hudHide {
+    NSUInteger options = UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveEaseIn;
+    [UIView animateWithDuration:0.15 delay:0 options:options animations:^{
+        _hudView.alpha = 0;
+        _overlayView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [_hudView removeFromSuperview];
+        _hudView = nil;
+    }];
 }
 
 @end
@@ -214,7 +213,7 @@ static const CGFloat kImageHeight = 50.0f;
         _hudIndicatorView.color = hudFontColor;
         _hudIndicatorView.hidesWhenStopped = YES;
         [self addSubview:_hudIndicatorView];
-
+        
         self.width = kDefaultHudWidth;
     }
     return  self;
@@ -263,3 +262,4 @@ static const CGFloat kImageHeight = 50.0f;
 }
 
 @end
+
