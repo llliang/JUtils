@@ -25,18 +25,22 @@
 
 - (UIImage *)scaleToSize:(CGSize)size {
     CGSize originSize = self.size;  
-    if (originSize.width <= size.width && originSize.height < size.height) {
+    if (originSize.width <= size.width && originSize.height <= size.height) {
         return self;
-    }
-    float originRatio = size.width/size.height;
+    }  
+    float originRatio = originSize.width/originSize.height;
+    float ratio = size.width/size.height;
     CGSize resultSize = CGSizeZero;
-    float ratio = originSize.width/originSize.height;
     
-    if (ratio >= originRatio && originSize.width >= size.width) {
-        resultSize = CGSizeMake(size.width, size.width*originSize.height/originSize.width);
-    }
-    if (ratio < 1 && originSize.height >= size.height) {
-        resultSize = CGSizeMake(originSize.width*size.height/originSize.height, size.height);
+    if (originRatio <= ratio) {
+        if ( originSize.width >= size.width) {
+            resultSize = CGSizeMake(size.width, size.width*originSize.height/originSize.width);
+        }else {
+            resultSize = CGSizeMake((originSize.width*size.height)/originSize.height, size.height);
+        }
+    } else {
+        // 此种情况只有一种 originSize.width > size.width 
+        resultSize = CGSizeMake(size.width, (size.width*originSize.height)/originSize.width);
     }
     UIGraphicsBeginImageContext(resultSize);
     [self drawInRect:CGRectMake(0, 0, resultSize.width, resultSize.height)];
