@@ -236,6 +236,7 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)initializeCollectionViewWithLayout:(UICollectionViewLayout *)layout {
     
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
+    self.collectionView.backgroundColor = [UIColor clearColor];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
