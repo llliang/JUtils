@@ -51,7 +51,7 @@
     _noDataView.hidden = YES;
     
     _dataModel = [self createDataModel];
-    if (_dataModel.data && [_dataModel.data count]) {
+    if (_dataModel.data && [_dataModel itemCount] > 0) {
         [_tableView reloadData];
     }
     
